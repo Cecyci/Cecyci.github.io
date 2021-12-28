@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    贪心算法 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-算法/贪心算法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  贪心算法
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2019-08-30T06:00:55.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>有关贪心算法的练习题整体的归纳与总结</p>
+<span id="more"></span>
+<h2 id="算法理解"><a href="#算法理解" class="headerlink" title="算法理解"></a>算法理解</h2><p>贪心：对问题进行求解时，每一步都采取最优的选择；近似最优解；</p>
+<ol>
+<li>数学模型</li>
+<li>原问题-&gt;子问题</li>
+<li>得到子问题的局部最优解</li>
+<li>把局部最优解整合成整个问题的近似最优解<br>（集合覆盖问题、旅行商问题）<h2 id="eg"><a href="#eg" class="headerlink" title="eg."></a>eg.</h2><h3 id="hduoj1009"><a href="#hduoj1009" class="headerlink" title="hduoj1009"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1009">hduoj1009</a></h3></li>
+</ol>
+<p> <strong>FatMouse’ Trade：算出比例，从大到小排列，选择；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">    int x;</span><br><span class="line">    int y;</span><br><span class="line">    int t;</span><br><span class="line">&#125;JF[1000];</span><br><span class="line"></span><br><span class="line">bool cmp(node a,node b)</span><br><span class="line">&#123;</span><br><span class="line">    double xx=(double)a.x/a.y;</span><br><span class="line">    double yy=(double)b.x/b.y;</span><br><span class="line">    return xx&gt;yy;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m,n;</span><br><span class="line">    while(scanf(&quot;%d%d&quot;,&amp;m,&amp;n)!=EOF&amp;&amp;m!=-1&amp;&amp;n!=-1)&#123;</span><br><span class="line">        for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">            cin&gt;&gt;JF[i].x&gt;&gt;JF[i].y;</span><br><span class="line">            JF[i].t=i;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(JF,JF+n,cmp);</span><br><span class="line">        int sum=0;int i;</span><br><span class="line">        for(i=0;i&lt;n;i++)&#123;</span><br><span class="line">            if(m&gt;=JF[i].y)&#123;</span><br><span class="line">                sum+=JF[i].x;</span><br><span class="line">                m=m-JF[i].y;</span><br><span class="line">            &#125;</span><br><span class="line">            else break;</span><br><span class="line">        &#125;</span><br><span class="line">        double tmp;</span><br><span class="line">        if(m!=0&amp;&amp;i!=n)tmp=(double)(JF[i].x*m)/JF[i].y+sum;</span><br><span class="line">        else tmp=(double)sum;</span><br><span class="line">        printf(&quot;%.3lfn&quot;,tmp);</span><br><span class="line">        /*for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">            cout&lt;&lt;JF[i].t&lt;&lt;&quot; &quot;&lt;&lt;JF[i].x&lt;&lt;&quot; &quot;&lt;&lt;JF[i].y&lt;&lt;endl;</span><br><span class="line">        &#125;*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1045"><a href="#hduoj1045" class="headerlink" title="hduoj1045"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1045">hduoj1045</a></h3><p> <strong>放置碉堡的问题，麻烦，按照每块干扰的区域数从小到大排列，选择；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">char maze[5][5];</span><br><span class="line">int num;</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">    int x;</span><br><span class="line">    int y;</span><br><span class="line">    int value;</span><br><span class="line">&#125;flag[20];</span><br><span class="line"></span><br><span class="line">bool cmp(node a,node b)</span><br><span class="line">&#123;</span><br><span class="line">    return a.value&lt;b.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool fire(node n)</span><br><span class="line">&#123;</span><br><span class="line">    int x=n.x;</span><br><span class="line">    int y=n.y;</span><br><span class="line">    int i,j;</span><br><span class="line">    for(i=0;i&lt;num;i++)&#123;</span><br><span class="line">        if(maze[i][y]==&#x27;f&#x27;)&#123;</span><br><span class="line">            //证明i与x之间没有墙</span><br><span class="line">            int up,down;</span><br><span class="line">            if(i&gt;x)&#123;</span><br><span class="line">                up=x;</span><br><span class="line">                down=i;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                up=i;down=x;</span><br><span class="line">            &#125;</span><br><span class="line">            int tmp=up+1;</span><br><span class="line">            //if(tmp==down)break;</span><br><span class="line">            for(;tmp&lt;down;tmp++)&#123;</span><br><span class="line">                if(maze[tmp][y]==&#x27;X&#x27;)break;</span><br><span class="line">            &#125;</span><br><span class="line">            if(tmp==down)break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(i!=num)return false;</span><br><span class="line">    for(j=0;j&lt;num;j++)&#123;</span><br><span class="line">        if(maze[x][j]==&#x27;f&#x27;)&#123;</span><br><span class="line">            //证明j与y之间没有墙</span><br><span class="line">            int l,r;</span><br><span class="line">            if(j&lt;y)&#123;</span><br><span class="line">                l=j;</span><br><span class="line">                r=y;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                l=y;r=j;</span><br><span class="line">            &#125;</span><br><span class="line">            int tmp=l+1;</span><br><span class="line">            //if(tmp==r)break;</span><br><span class="line">            for(;tmp&lt;r;tmp++)&#123;</span><br><span class="line">                if(maze[x][tmp]==&#x27;X&#x27;)break;</span><br><span class="line">            &#125;</span><br><span class="line">            if(tmp==r)break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(j!=num)return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;num)!=EOF&amp;&amp;num!=0)&#123;</span><br><span class="line">        for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;num;j++)</span><br><span class="line">                cin&gt;&gt;maze[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;num;j++)&#123;</span><br><span class="line">                //cout&lt;&lt;maze[i][j];</span><br><span class="line">                int t=i*num+j;</span><br><span class="line">                flag[t].x=i;</span><br><span class="line">                flag[t].y=j;</span><br><span class="line">                //设计贪心依据数组</span><br><span class="line">                if(maze[i][j]==&#x27;X&#x27;)&#123;</span><br><span class="line">                    flag[t].value=0;</span><br><span class="line">                &#125;</span><br><span class="line">                else &#123;</span><br><span class="line">                    int count=1;</span><br><span class="line">                    //往上</span><br><span class="line">                    for(int a=i-1;a&gt;=0;a--)&#123;</span><br><span class="line">                        if(maze[a][j]==&#x27;X&#x27;)break;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    //往下</span><br><span class="line">                    for(int a=i+1;a&lt;num;a++)&#123;</span><br><span class="line">                        if(maze[a][j]==&#x27;X&#x27;)break;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    //往左</span><br><span class="line">                    for(int b=j-1;b&gt;=0;b--)&#123;</span><br><span class="line">                        if(maze[i][b]==&#x27;X&#x27;)break;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    //往右</span><br><span class="line">                    for(int b=j+1;b&lt;num;b++)&#123;</span><br><span class="line">                        if(maze[i][b]==&#x27;X&#x27;)break;</span><br><span class="line">                        count++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    flag[t].value=count;</span><br><span class="line">                &#125;</span><br><span class="line">                //cout&lt;&lt;flag[t].value;</span><br><span class="line">            &#125;</span><br><span class="line">            //cout&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        //从小到大排序</span><br><span class="line">        sort(flag,flag+num*num,cmp);</span><br><span class="line">        //for(int i=0;i&lt;num*num;i++)cout&lt;&lt;flag[i].value&lt;&lt;&quot; &quot;;</span><br><span class="line">        //贪心选择</span><br><span class="line">        int sum=0;</span><br><span class="line">        for(int i=0;i&lt;num*num;i++)&#123;</span><br><span class="line">            if(flag[i].value!=0)&#123;//排除墙</span><br><span class="line">                if(fire(flag[i]))</span><br><span class="line">                &#123;</span><br><span class="line">                    sum++;</span><br><span class="line">                    maze[flag[i].x][flag[i].y]=&#x27;f&#x27;;//已放置标记</span><br><span class="line">                    //cout&lt;&lt;flag[i].x&lt;&lt;&quot; &quot;&lt;&lt;flag[i].y&lt;&lt;&quot; &quot;&lt;&lt;flag[i].value&lt;&lt;endl;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;sum&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1051"><a href="#hduoj1051" class="headerlink" title="hduoj1051"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1051">hduoj1051</a></h3><p> <strong>对长度、宽度进行从小到大排序，先选择小的，向后选择满足条件的然后标记访问；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">bool vis[5000];</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">    int l;</span><br><span class="line">    int w;</span><br><span class="line">&#125;wood[5000];</span><br><span class="line"></span><br><span class="line">bool cmp(node x,node y)</span><br><span class="line">&#123;</span><br><span class="line">    if(x.l==y.l)&#123;</span><br><span class="line">        return x.w&lt;y.w;</span><br><span class="line">    &#125;</span><br><span class="line">    return x.l&lt;y.l;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int T;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;T);</span><br><span class="line">    while(T--)&#123;</span><br><span class="line">        int num;</span><br><span class="line">        int sum=0;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;num);</span><br><span class="line">        memset(vis,0,sizeof(vis));</span><br><span class="line">        for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            cin&gt;&gt;wood[i].l&gt;&gt;wood[i].w;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(wood,wood+num,cmp);</span><br><span class="line">        for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            //cout&lt;&lt;wood[i].l&lt;&lt;&quot; &quot;&lt;&lt;wood[i].w&lt;&lt;endl;</span><br><span class="line">            if(vis[i])continue;//访问完跳过</span><br><span class="line">            //因为l已经从小到大排序过</span><br><span class="line">            //因此关注w</span><br><span class="line">            int curw=wood[i].w;</span><br><span class="line">            for(int j=i+1;j&lt;num;j++)&#123;</span><br><span class="line">                if(!vis[j]&amp;&amp;curw&lt;=wood[j].w)&#123;</span><br><span class="line">                    //cout&lt;&lt;&quot;ok&quot;;</span><br><span class="line">                    vis[j]=1;//标记访问</span><br><span class="line">                    curw=wood[j].w;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;sum&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/30/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" data-id="ckxq190ke0003eswb6q5re3nn" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      二分图匹配
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">搜索</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

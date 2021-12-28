@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    leetcode刷题笔记 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-刷题/leetcode刷题笔记" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  leetcode刷题笔记
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/10/09/%E5%88%B7%E9%A2%98/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-10-09T10:34:36.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h2 id="STL-set用法"><a href="#STL-set用法" class="headerlink" title="STL set用法"></a>STL set用法</h2><p> <strong>特点</strong>：集合，元素唯一，对元素自动进行升序排序;<br>set<int> s;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s.begin();</span><br><span class="line">s.end();</span><br><span class="line">s.insert(x); //插入x元素</span><br><span class="line">s.erase(x);  s.erase(it) //删除x元素 ,it迭代器指向元素</span><br><span class="line">s.find(x); //查找x元素,不存在则返回s.end()</span><br><span class="line">s.lower_bound(x); //大于或等于x，得到定位器</span><br></pre></td></tr></table></figure>
+<h2 id="22-括号生成"><a href="#22-括号生成" class="headerlink" title="22. 括号生成"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/generate-parentheses/">22. 括号生成</a></h2><ol>
+<li>暴力递归解法:得到n对”()”的全排列情况，验证平衡；<br>时间复杂度O(2^2n);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; result;</span><br><span class="line">    </span><br><span class="line">    // &#x27;(&#x27;==1  ; &#x27;)&#x27;==-1</span><br><span class="line">    bool vaild(int array[],int len)&#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">            res+=array[i];</span><br><span class="line">            if(res&lt;0)return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return (res==0);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void generate(int arr[],int pos,int len)&#123;</span><br><span class="line">        if(pos == len)&#123;</span><br><span class="line">            //判断是否有效</span><br><span class="line">            if(vaild(arr,len))&#123;</span><br><span class="line">                //将数组转换为string</span><br><span class="line">                string temp=&quot;&quot;;</span><br><span class="line">                for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">                    if(arr[i]==1)temp+=&quot;(&quot;;</span><br><span class="line">                    else temp+=&quot;)&quot;;</span><br><span class="line">                &#125;</span><br><span class="line">                result.push_back(temp);</span><br><span class="line">                // ncout&lt;&lt;result.size();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            arr[pos]=1;</span><br><span class="line">            generate(arr,pos+1,len);</span><br><span class="line">            arr[pos]=-1;</span><br><span class="line">            generate(arr,pos+1,len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vector&lt;string&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        int *arr=new int[2*n];</span><br><span class="line">        generate(arr,0,2*n);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>动态规划：初始状态为0的””,1的”()”，接下来的值根据前面得到的：(p组括号的所有可能情况)+q组括号的所有可能情况,其中p+q=n-1;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        vector&lt;vector&lt;string&gt; &gt;dp(n+1);</span><br><span class="line">        dp[0]=&#123;&quot;&quot;&#125;;</span><br><span class="line">        dp[1]=&#123;&quot;()&quot;&#125;;</span><br><span class="line">        if(n==1||n==0)return dp[n];</span><br><span class="line">        for(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;i;j++)&#123;</span><br><span class="line">                for(int x=0;x&lt;dp[j].size();x++)&#123;</span><br><span class="line">                    for(int y=0;y&lt;dp[i-j-1].size();y++)&#123;</span><br><span class="line">                        string res=&quot;(&quot;+dp[j][x]+&quot;)&quot;+dp[i-j-1][y];</span><br><span class="line">                        dp[i].push_back(res);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="23-合并K个排序链表"><a href="#23-合并K个排序链表" class="headerlink" title="23.合并K个排序链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/submissions/">23.合并K个排序链表</a></h2><ol>
+<li>最简单粗暴的链表操作：</li>
+</ol>
+<ul>
+<li>原始k个链表已排好序；</li>
+<li>在每个列表的表头筛选最小值，即结果链表的下一个值</li>
+<li>更新获得最小值的当前链表的下一个值</li>
+<li>重复第2步，循环直到所有k个链表到达结尾；</li>
+</ul>
+<p>时间复杂度O(m*k),m为所有k个链表结点总数；额外的空间复杂度O(m);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findMin(vector&lt;ListNode*&gt;&amp; lists)&#123;</span><br><span class="line">        int len=lists.size();</span><br><span class="line">        int min=99999999;</span><br><span class="line">        int minindex=-1;</span><br><span class="line">        for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">            if(lists[i]!=NULL &amp;&amp; lists[i]-&gt;val&lt;min)&#123;</span><br><span class="line">                min=lists[i]-&gt;val;</span><br><span class="line">                minindex=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return minindex;//-1结束：所有链表都已遍历完成</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123;</span><br><span class="line">        ListNode *head=new ListNode(0);</span><br><span class="line">        ListNode *pre=head;</span><br><span class="line">        int pos=0;</span><br><span class="line">        while((pos=findMin(lists))&gt;=0)&#123;</span><br><span class="line">            ListNode *newnode=new ListNode(lists[pos]-&gt;val);</span><br><span class="line"></span><br><span class="line">            //找到最小下标，进行一定操作</span><br><span class="line">            if(lists[pos]-&gt;next!=NULL)lists[pos]=lists[pos]-&gt;next;</span><br><span class="line">            else lists[pos]=NULL;</span><br><span class="line">        </span><br><span class="line">            pre-&gt;next=newnode;</span><br><span class="line">            pre=newnode;</span><br><span class="line">        &#125;</span><br><span class="line">        return head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>分治法:将链表两两合并（递归）;<br>时间复杂度:O(mlogk),空间复杂度O(1);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* MergeTwoSortedList(ListNode* l1,ListNode* l2)&#123;</span><br><span class="line">        if(l1==NULL)&#123;</span><br><span class="line">            return l2;</span><br><span class="line">        &#125;</span><br><span class="line">        if(l2==NULL)&#123;</span><br><span class="line">            return l1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(l1-&gt;val &lt;= l2-&gt;val)&#123;</span><br><span class="line">            l1-&gt;next=MergeTwoSortedList(l1-&gt;next,l2);</span><br><span class="line">            return l1;</span><br><span class="line">        &#125;</span><br><span class="line">        l2-&gt;next=MergeTwoSortedList(l1,l2-&gt;next);</span><br><span class="line">        return l2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists,int left,int right)&#123;</span><br><span class="line">        //最小分治，左右边界相等</span><br><span class="line">        if( left == right )&#123;</span><br><span class="line">            return lists[left];</span><br><span class="line">        &#125;</span><br><span class="line">        int mid=(left+right)/2;</span><br><span class="line">        ListNode* l1=mergeKLists(lists,left,mid);</span><br><span class="line">        ListNode* l2=mergeKLists(lists,mid+1,right);</span><br><span class="line">        return MergeTwoSortedList(l1,l2);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123;</span><br><span class="line">        int len=lists.size();</span><br><span class="line">        if(len==0)return NULL;</span><br><span class="line">        ListNode* res=mergeKLists(lists,0,len-1);</span><br><span class="line">        return  res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/09/%E5%88%B7%E9%A2%98/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="ckxq1b1mt000meswbg575dkr2" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/10/13/%E5%88%B7%E9%A2%98/LeetCode/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      LeetCode
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/09/30/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/%E4%BF%9D%E7%A0%94%E5%8E%86%E7%A8%8B/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">保研历程</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

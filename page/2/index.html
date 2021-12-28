@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="jumbotron">
+  <div class="video">
+    
+    <div class="video-frame">
+      <img src="/images/ocean/overlay-hero.png" alt="Decorative image frame">
+    </div>
+    
+    <div class="video-media">
+      <video playsinline="" autoplay="" loop="" muted="" data-autoplay="" poster="/images/ocean/ocean.png"
+        x5-video-player-type="h5">
+        <source src="/images/ocean/ocean.mp4" type="video/mp4">
+        <source src="/images/ocean/ocean.ogv" type="video/ogg">
+        <source src="/images/ocean/ocean.webm" type="video/webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="video-inner text-center text-white">
+      <h1><a href="/">Cecyci</a></h1>
+      <p>玄学分享家——2021.12.28建站 看看我能坚持多久</p>
+      <div><img src="/images/hexo-inverted.svg" class="brand" alt="Cecyci"></div>
+    </div>
+    <div class="video-learn-more">
+      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
+    </div>
+  </div>
+</section>
+<div id="landingpage">
+  <section class="outer">
+  <article class="articles">
+    
+    <h1 class="page-type-title"></h1>
+    
+    
+    <article id="post-css" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/11/23/css/">css</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/11/23/css/" class="article-date">
+  <time datetime="2019-11-23T08:14:15.000Z" itemprop="datePublished">2019-11-23</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <h1 id="css：层叠样式表"><a href="#css：层叠样式表" class="headerlink" title="css：层叠样式表"></a>css：层叠样式表</h1><p>定义如何显示HTML元素；</p>
+<h2 id="样式优先级"><a href="#样式优先级" class="headerlink" title="样式优先级"></a>样式优先级</h2><p>(!important覆盖任何声明)<br>内联样式1000<br>id选择器100<br>伪类选择器<br>属性选择器<br>class类选择器10<br>元素选择器1<br>通用选择器*</p>
+<h2 id="链接样式"><a href="#链接样式" class="headerlink" title="链接样式"></a>链接样式</h2><p>a.link-未访问过正常链接；<br>a.visited-访问过后的链接；<br>a.hover-鼠标悬浮；<br>a.active-鼠标点击；<br><strong>注意：</strong><br>a:hover 必须跟在 a:link 和 a:visited后面<br>a:active 必须跟在 a:hover后面</p>
+<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p>用于封装html元素，由内到外分为content、padding、border、margin四部分；<br><strong>标准盒子模型：</strong> width仅为content宽度大小；<br>总元素的宽度=宽度+左填充+右填充+左边框+右边框+左边距+右边距<br>总元素的高度=高度+顶部填充+底部填充+上边框+下边框+上边距+下边距<br><strong>IE盒子模型：</strong> width为内容、内边距和边框的宽度的总和；</p>
+<h2 id="overflow属性"><a href="#overflow属性" class="headerlink" title="overflow属性"></a>overflow属性</h2><p>visible、hidden、scroll、auto、inherit；</p>
+<h2 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h2><p>后代选择器：(div p)div的所有后代p元素；<br>子元素选择器：(div&gt;p)div后的直接子元素p;<br>相邻兄弟选择器：(div+p)在div之后与div相邻的p兄弟元素；<br>后续兄弟选择器：(div~p)在div之后的所有p兄弟元素；</p>
+<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p><strong>anchor:</strong> visited,link…;<br><strong>first-child:</strong><br>  p&gt;i:first-child p元素的直接后代i子元素，必须是第一个；<br>  p:first-child i 作为第一个p元素的所有后代i元素；<br><strong>lang伪类：</strong><br>q:lang(no) {quotes: “<del>“ “</del>“;} 为lang属性名为“no”的q元素定义引号类型；</p>
+<h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><p>first-letter<br>first-line<br>before<br>after</p>
+<h2 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h2><p><strong>竖直导航栏：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">body &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul &#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">    width: 25%;</span><br><span class="line">    background-color: #f1f1f1;</span><br><span class="line">    position: fixed;</span><br><span class="line">    height: 100%;</span><br><span class="line">    overflow: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a &#123;</span><br><span class="line">    display: block;</span><br><span class="line">    color: #000;</span><br><span class="line">    padding: 8px 16px;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a.active &#123;</span><br><span class="line">    background-color: #4CAF50;</span><br><span class="line">    color: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a:hover:not(.active) &#123;</span><br><span class="line">    background-color: #555;</span><br><span class="line">    color: white;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;&lt;a class=&quot;active&quot; href=&quot;#home&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#news&quot;&gt;新闻&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;联系&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;margin-left:25%;padding:1px 16px;height:1000px;&quot;&gt;</span><br><span class="line">  &lt;h2&gt;Fixed Full-height Side Nav&lt;/h2&gt;</span><br><span class="line">  &lt;h3&gt;Try to scroll this area, and see how the sidenav sticks to the page&lt;/h3&gt;</span><br><span class="line">  &lt;p&gt;Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;Some text..&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>水平导航栏：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">body &#123;margin:0;&#125;</span><br><span class="line"></span><br><span class="line">ul &#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    background-color: #333;</span><br><span class="line">    position: fixed;</span><br><span class="line">	top:0;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li &#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a &#123;</span><br><span class="line">    display: block;</span><br><span class="line">    color: white;</span><br><span class="line">    text-align: center;</span><br><span class="line">    padding: 14px 16px;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a:hover:not(.active) &#123;</span><br><span class="line">    background-color: #111;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.active &#123;</span><br><span class="line">    background-color: #4CAF50;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;&lt;a class=&quot;active&quot; href=&quot;#home&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#news&quot;&gt;新闻&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;联系&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;&quot;&gt;</span><br><span class="line">&lt;h1&gt;Fixed Top Navigation Bar&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;Scroll this page to see the effect&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;The navigation bar will stay at the top of the page while scrolling&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Some text some text some text some text..&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>下拉菜单：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;下拉菜单实例|菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">  ul&#123;</span><br><span class="line">    list-style-type:none;</span><br><span class="line">    margin:0;</span><br><span class="line">    padding:0;</span><br><span class="line">    overflow:hidden;</span><br><span class="line">    background-color:#333;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  li&#123;</span><br><span class="line">    float:left;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  li a, .dropbtn</span><br><span class="line">  &#123;</span><br><span class="line">    display:inline-block;</span><br><span class="line">    color:white;</span><br><span class="line">    text-align:center;</span><br><span class="line">    padding:14px 16px;</span><br><span class="line">    text-decoration:none;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  li a:hover, .dropdown:hover, .dropbtn</span><br><span class="line">  &#123;</span><br><span class="line">    background-color:#111;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  .dropdown</span><br><span class="line">  &#123;</span><br><span class="line">    display:inline-block;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  .dropdown-content</span><br><span class="line">  &#123;</span><br><span class="line">    display:none;</span><br><span class="line">    position:absolute;</span><br><span class="line">    background-color:#f9f9f9;</span><br><span class="line">    min-width:160px;</span><br><span class="line">    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  .dropdown-content a</span><br><span class="line">  &#123;</span><br><span class="line">    color:black;</span><br><span class="line">    padding:12px 16px;</span><br><span class="line">    text-decoration:none;</span><br><span class="line">    display:block;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  .dropdown-content a:hover &#123;background-color: #f1f1f1&#125;</span><br><span class="line">  </span><br><span class="line">  .dropdown:hover .dropdown-content</span><br><span class="line">  &#123;</span><br><span class="line">    display:block;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;&lt;a class=&quot;active&quot; href=&quot;#home&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href=&quot;#news&quot;&gt;新闻&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;div class=&quot;dropdown&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot; class=&quot;dropbtn&quot;&gt;下拉菜单&lt;/a&gt;</span><br><span class="line">    &lt;div class=&quot;dropdown-content&quot;&gt;</span><br><span class="line">      &lt;a href=&quot;#&quot;&gt;链接 1&lt;/a&gt;</span><br><span class="line">      &lt;a href=&quot;#&quot;&gt;链接 2&lt;/a&gt;</span><br><span class="line">      &lt;a href=&quot;#&quot;&gt;链接 3&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;导航栏上的下拉菜单&lt;/h3&gt;</span><br><span class="line">&lt;p&gt;鼠标移动到 &quot;下拉菜单&quot; 链接先显示下拉菜单。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="悬浮提示框"><a href="#悬浮提示框" class="headerlink" title="悬浮提示框"></a>悬浮提示框</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.tooltip &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    border-bottom: 1px dotted black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.tooltip .tooltiptext &#123;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">    width: 120px;</span><br><span class="line">    background-color: black;</span><br><span class="line">    color: #fff;</span><br><span class="line">    text-align: center;</span><br><span class="line">    border-radius: 6px;</span><br><span class="line">    padding: 5px 0;</span><br><span class="line"></span><br><span class="line">    /* 定位 */</span><br><span class="line">    position: absolute;</span><br><span class="line">    z-index: 1;</span><br><span class="line">    /* 居中上/下方</span><br><span class="line">    left:50%;</span><br><span class="line">    margin-left:-60px;</span><br><span class="line">    bottom:100%;</span><br><span class="line">    // top:100%;</span><br><span class="line">    */</span><br><span class="line">    /*居中左右方</span><br><span class="line">    left:105%;</span><br><span class="line">    //right:105%;</span><br><span class="line">    top:-5px;//padding值</span><br><span class="line">    */</span><br><span class="line">    /*初始位置</span><br><span class="line">    top:50%:</span><br><span class="line">    left:50%;</span><br><span class="line">    */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.tooltip:hover .tooltiptext &#123;</span><br><span class="line">    visibility: visible;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body style=&quot;text-align:center;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;tooltip&quot;&gt;鼠标移动到这</span><br><span class="line">  &lt;span class=&quot;tooltiptext&quot;&gt;提示文本&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="图片廊"><a href="#图片廊" class="headerlink" title="图片廊"></a>图片廊</h2><ol>
+<li>div.img类设置width，并且向左浮动(div盒子的宽度设置);</li>
+<li>img标签中引入图片大小设置(在下一步存在的情况下没啥用);</li>
+<li>div.img img设置标签内宽度width=100%，height=auto，表示图片适应div大小显示；<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt; </span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;  </span><br><span class="line">&lt;style&gt;</span><br><span class="line">div.img &#123;</span><br><span class="line">    margin: 5px;</span><br><span class="line">    border: 1px solid #ccc;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 180px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div.img:hover &#123;</span><br><span class="line">    border: 1px solid #777;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div.img img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div.desc &#123;</span><br><span class="line">    padding: 15px;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;responsive&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;img&quot;&gt;</span><br><span class="line">    &lt;a target=&quot;_blank&quot; href=&quot;//static.runoob.com/images/demo/demo1.jpg&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;//static.runoob.com/images/demo/demo1.jpg&quot; alt=&quot;图片文本描述&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">    &lt;div class=&quot;desc&quot;&gt;这里添加图片文本描述&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;div class=&quot;responsive&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;img&quot;&gt;</span><br><span class="line">    &lt;a target=&quot;_blank&quot; href=&quot;//static.runoob.com/images/demo/demo2.jpg&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;//static.runoob.com/images/demo/demo2.jpg&quot; alt=&quot;图片文本描述&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">    &lt;div class=&quot;desc&quot;&gt;这里添加图片文本描述&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;div class=&quot;responsive&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;img&quot;&gt;</span><br><span class="line">    &lt;a target=&quot;_blank&quot; href=&quot;//static.runoob.com/images/demo/demo3.jpg&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;//static.runoob.com/images/demo/demo3.jpg&quot; alt=&quot;图片文本描述&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">    &lt;div class=&quot;desc&quot;&gt;这里添加图片文本描述&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;div class=&quot;responsive&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;img&quot;&gt;</span><br><span class="line">    &lt;a target=&quot;_blank&quot; href=&quot;//static.runoob.com/images/demo/demo4.jpg&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;//static.runoob.com/images/demo/demo4.jpg&quot; alt=&quot;图片文本描述&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">    &lt;div class=&quot;desc&quot;&gt;这里添加图片文本描述&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="图像拼合-导航列表"><a href="#图像拼合-导航列表" class="headerlink" title="图像拼合 导航列表"></a>图像拼合 导航列表</h2>设置背景位置，使用同一张图片的不同部分；<br>img标签src引入透明图片，在img类中定义background，引入图片url，定义初始位置；</li>
+</ol>
+<p><strong>导航：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt; </span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;  </span><br><span class="line">&lt;style&gt;</span><br><span class="line">#navlist&#123;position:relative;&#125;</span><br><span class="line">#navlist li&#123;margin:0;padding:0;list-style:none;position:absolute;top:0;&#125;</span><br><span class="line">#navlist li, #navlist a&#123;height:44px;display:block;&#125;</span><br><span class="line"></span><br><span class="line">#home&#123;left:0px;width:46px;&#125;</span><br><span class="line">#home&#123;background:url(&#x27;/images/img_navsprites.gif&#x27;) 0 0;&#125;</span><br><span class="line"></span><br><span class="line">#prev&#123;left:63px;width:43px;&#125;</span><br><span class="line">#prev&#123;background:url(&#x27;/images/img_navsprites.gif&#x27;) -47px 0;&#125;</span><br><span class="line"></span><br><span class="line">#next&#123;left:129px;width:43px;&#125;</span><br><span class="line">#next&#123;background:url(&#x27;/images/img_navsprites.gif&#x27;) -91px 0;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;ul id=&quot;navlist&quot;&gt;</span><br><span class="line">  &lt;li id=&quot;home&quot;&gt;&lt;a href=&quot;/&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;prev&quot;&gt;&lt;a href=&quot;/css/&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li id=&quot;next&quot;&gt;&lt;a href=&quot;/css/&quot;&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><p>选取具有特定属性名的HTML元素<br>[title=abc] title与abc相等；<br>[title~=abc] title中包含abc单词；<br>[title|=abc] title以abc开头，或有“-”连接，必须唯一；<br>[title*=abc] title中可拆分出abc单词；<br>[title$=abc] title以abc为结尾；</p>
+<h2 id="表单渲染"><a href="#表单渲染" class="headerlink" title="表单渲染"></a>表单渲染</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt; </span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt; </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">input[type=text], select &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  padding: 12px 20px;</span><br><span class="line">  margin: 8px 0;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  border-radius: 4px;</span><br><span class="line">  box-sizing: border-box; </span><br><span class="line">  //确保浏览器呈现出带有指定宽度和高度的输入框是把边框和内边距一起计算进去的</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type=submit] &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  background-color: #4CAF50;</span><br><span class="line">  color: white;</span><br><span class="line">  padding: 14px 20px;</span><br><span class="line">  margin: 8px 0;</span><br><span class="line">  border: none;</span><br><span class="line">  border-radius: 4px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type=submit]:hover &#123;</span><br><span class="line">  background-color: #45a049;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">  background-color: #f2f2f2;</span><br><span class="line">  padding: 20px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;使用 CSS 来渲染 HTML 的表单元素&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;form action=&quot;/action_page.php&quot;&gt;</span><br><span class="line">    &lt;label for=&quot;fname&quot;&gt;First Name&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;firstname&quot; placeholder=&quot;Your name..&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;label for=&quot;lname&quot;&gt;Last Name&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lastname&quot; placeholder=&quot;Your last name..&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;label for=&quot;country&quot;&gt;Country&lt;/label&gt;</span><br><span class="line">    &lt;select id=&quot;country&quot; name=&quot;country&quot;&gt;</span><br><span class="line">      &lt;option value=&quot;australia&quot;&gt;Australia&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;canada&quot;&gt;Canada&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;usa&quot;&gt;USA&lt;/option&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">  </span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;</span><br><span class="line">  &lt;/form&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>一般background-color都只包括padding以内的部分，而body为最外层框架，包括了margin，设置margin的时候是内部的margin？</strong></p>
+<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body&#123; // 父级</span><br><span class="line">  counter-reset:section;</span><br><span class="line">&#125;</span><br><span class="line">h2:before &#123; //在标题前插入计数</span><br><span class="line">  counter-increment:section; //命名成组</span><br><span class="line">  content: &quot;Section &quot; counter(section) &quot;: &quot;; // 计数内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h1><h2 id="border"><a href="#border" class="headerlink" title="border"></a>border</h2><p><strong>border-radius 圆角半径:</strong><br>4个值：从左上角开始顺时针；<br>3个值：左上角 右上角和左下角 右下角；<br>2个值：左上和右下 右上和左下；<br>椭圆角：长半径/短半径；<br><strong>box-shadow 边框阴影:</strong><br>(阴影框距离原div的左相对距离 上相对距离 透明度 颜色)<br><strong>border-image 边框背景:</strong><br>url() 缩放程度(数值越小图案越大) round/stretch</p>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p><strong>background-image 背景图片：</strong><br>url(),url();<br><strong>background-size 背景大小：</strong><br>100% 100%; 全覆盖<br><strong>background-origin 背景定位覆盖区域：</strong><br>content-box;padding-box;border-box;<br><strong>background-position 背景图片位置：</strong><br>left bottom;<br><strong>background-clip 背景裁剪属性：</strong><br>content-box;padding-box;border-box;</p>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><p><strong>background-image:</strong><br><strong>linear-gradient 线性渐变</strong><br>linear-gradient(to derection,color1,color2); // 角度<br>linear-gradient(0-360deg,color1,color2); // 方向<br>linear-gradient(to derection,rgba(255,0,0,0),rgba(255,0,0,1)) // 0-1 完全透明-不透明<br><strong>radial-gradient 径向渐变</strong><br>radial-gradient (circle/ellipse, color1, color2, color3);</p>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p>text-shadow:水平阴影 垂直阴影 模糊距离 阴影颜色；<br>box-shadow 可叠加；<br>text-overflow:clip/ellipsis; 文本溢出表现形式…/直接裁剪;<br>word-wrap:break-word; 强制文本换行;<br>word-break:keep-all/break-all; 单词拆分；</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>@font-face<br>{<br>  font-family:font-name;<br>  src:url();<br>  font-weight:bold;<br>  …<br>}</p>
+<h2 id="2D"><a href="#2D" class="headerlink" title="2D"></a>2D</h2><p><strong>transform:</strong><br>rotate(angle) : 绕中心点旋转angle角度；<br>translate(x,y) : 沿着x和y轴移动元素；<br>scale(x,y) : 宽度高度缩放x,y倍；<br>skew(x-angle,y-angle) : 绕x轴，y轴倾斜角度；<br>matrix() 旋转，缩放，移动（平移）和倾斜</p>
+<h2 id="3D"><a href="#3D" class="headerlink" title="3D"></a>3D</h2><p><strong>transform:</strong><br>rotateX(angle) : 绕x轴朝页面内旋转度数；<br>rotateY(angle) : 绕y轴朝页面内旋转度数；<br>…</p>
+<h2 id="过渡动画"><a href="#过渡动画" class="headerlink" title="过渡动画"></a>过渡动画</h2><p>transition:变化属性1 时间1，变化属性2 时间2；<br>div 与 div:hover 需定义变化属性1 变化属性2</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>@keyframes animation-name{<br>  from {} //0%<br>  to {} //100%<br>}<br>在元素上定义animation属性：animation-name 时间；</p>
+<h2 id="多列属性"><a href="#多列属性" class="headerlink" title="多列属性"></a>多列属性</h2><p>将div内的内容分为多列；<br>column-count:列数；<br>column-gap：列间隙；<br>column-rule-*：width style color 两列间边框样式；<br>column-span：指定样式跨多少行(1|all)；<br>cloumn-width：指定列宽；</p>
+<h2 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h2><p>resize:both;<br>overflow:auto; // 用户可自定义元素大小<br>box-sizing:border-box;<br>outline:2px solid red;<br>outline-offset:15px; // 外形修饰</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>对img标签进行css设置：<br><strong>缩略图：</strong><br>border: 1px solid #ddd; // 加边框<br>border-radius: 4px; // 边框圆角<br>padding: 5px;<br><strong>圆角图片：</strong><br>border-radius: 5%; // 图片圆角<br><strong>响应式图片：</strong><br>img {<br>    max-width: 100%;<br>    height: auto;<br>}</p>
+<h2 id="按钮动画"><a href="#按钮动画" class="headerlink" title="按钮动画"></a>按钮动画</h2><p><strong>波纹：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.button:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    background: #90EE90;</span><br><span class="line">    display: block;</span><br><span class="line">    position: absolute;</span><br><span class="line">    padding-top: 300%;</span><br><span class="line">    padding-left: 350%;</span><br><span class="line">    margin-left: -20px!important;</span><br><span class="line">    margin-top: -120%;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transition: all 0.8s // 设置buttom:after的动画时限是0.8s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button:active:after &#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">    opacity: 1;</span><br><span class="line">    transition: 0s // 将buttom:active:after的动画时限设为0，即直接变换到当前状态；</span><br><span class="line">                   // 当active消失，再以0.8的时限返回原始状态；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="弹性盒子"><a href="#弹性盒子" class="headerlink" title="弹性盒子"></a>弹性盒子</h2><p>display:flex | -webkit-flex;<br><strong>flex-direction: row|row-reverse|column|column-reverse 排列方向（自适应）：</strong><br>设为row则限制width在flex容器内，不限制height;<br>设为column则限制height在flex容器内，不限制width;<br><strong>justify-content: flex-start|flex-end|center|space-between|space-around 内容沿排列主轴线的对齐方法：</strong><br>紧挨头，尾，居中，平均分割头尾不留间隔，头尾留相同间隔；<br><strong>align-items: flex-start|flex-end|center|baseline|stretch 弹性元素沿纵轴线的对齐方法：</strong><br>baseline基线：除特殊情况外与flex-start相同；<br>当弹性元素高度不受限制时，默认为stretch，与容器大小近似；<br>当flex-direction设为列排列时，主轴为竖直方向，则纵轴为水平；<br><strong>flex-wrap: nowrap|wrap|wrap-reverse 是否换行：</strong><br>默认nowrap不换行；<br><strong>align-content: flex-start | flex-end | center | space-between | space-around | stretch 各行沿纵轴线的对齐方法</strong><br><strong>弹性子元素属性：</strong><br>order：用int值来定义排列顺序，从小到大‘<br>margin:auto自动获取弹性容器中剩余空间，可居中；<br>align-self:弹性元素自身的algin-items属性；<br>flex：int值用于指定弹性子元素如何分配空间；</p>
+<hr>
+<p>以下记录在CSS中老混淆的属性；</p>
+<h1 id="position属性"><a href="#position属性" class="headerlink" title="position属性"></a>position属性</h1><p>position主要有4个值：static,fixed,relative,absolute;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt; </span><br><span class="line">...</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">Hello World</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;ok&lt;div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>默认属性，表示没有定位，出现在正常流中，忽略top,bottom,left,right的影响;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.wrap</span><br><span class="line">&#123;</span><br><span class="line">height: 200px;width: 200px;background-color: #ddd;</span><br><span class="line">&#125;</span><br><span class="line">.content</span><br><span class="line">&#123;</span><br><span class="line">height: 80px;width: 80px;background-color:yellow;left:20px;position:static;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../../public/img/css/position-static.jpg" alt="static"></p>
+<h2 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h2><p>以浏览器窗口为父参考元素，脱离文档流，不会随着浏览器窗口的滚动而滚动，不占据空间，会覆盖其他元素；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.wrap</span><br><span class="line">&#123;</span><br><span class="line">height: 200px;width: 200px;background-color: #ddd;</span><br><span class="line">&#125;</span><br><span class="line">.content</span><br><span class="line">&#123;</span><br><span class="line">height: 80px;width: 80px;background-color:yellow;top:20px;left:20px;position:fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/css/position-fixed.jpg" alt="fixed"></p>
+<h2 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h2><p>以自身在static情况下的标准位置为参考，top,bottom,left,right为-值则往相应方向移动，例如top为-向上，bottom为-向下，没有脱离文档流,仍占据原来的空间，会覆盖其他元素；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.wrap</span><br><span class="line">&#123;</span><br><span class="line">height: 200px;width: 200px;background-color: #ddd;</span><br><span class="line">&#125;</span><br><span class="line">.content</span><br><span class="line">&#123;</span><br><span class="line">height: 80px;width: 80px;background-color:yellow;left:-20px;top:20px;position:relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/css/position-relative.jpg" alt="relative"></p>
+<h2 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h2><p>以最近的父结点为父参考元素（最外层参考html），相对定位，脱离文档流,会覆盖其他元素；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.wrap</span><br><span class="line">&#123;</span><br><span class="line">height: 200px;width: 200px;background-color: #ddd;left:20px;top:20px;position:absolute</span><br><span class="line">&#125;</span><br><span class="line">.content</span><br><span class="line">&#123;</span><br><span class="line">height: 80px;width: 80px;background-color:yellow;left:10px;top:10px;position:absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/css/position-absolute.jpg" alt="absolute"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>fixed,absolute脱离文档流;除默认static外都会覆盖其他元素；</p>
+<h1 id="display"><a href="#display" class="headerlink" title="display"></a>display</h1><h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><ul>
+<li>弹性布局，用盒状模型提供最大的灵活性；Webkit内核浏览器为-webkit-flex;</li>
+<li>有main axis主轴与cross axis交叉轴；</li>
+<li>flex的6个属性：<br>flex-direction:主轴方向，即排列方向；<br>flex-wrap:如果一条轴线排列不下，如何换行；<br>flex-flow:(flex-direction)||(flex-wrap)<br>justify-content:项目在主轴上的对齐方式；<br>align-items:项目在交叉轴上的对其方式；<br>align-content:多根轴线的对齐方式；</li>
+<li>项目的6个属性：<br>order：排列顺序;<br>flex-grow：相对于其他灵活的项目的放大比例,0;<br>flex-shrink:相对于其他的灵活项目的缩小比例,1；<br>flex-basis:项目的长度，在分配多余空间占据的主轴空间，auto；<br>flex:auto,none;<br>flex 属性是 flex-grow、flex-shrink 和 flex-basis;<br>align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性;<h2 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h2><h2 id="block"><a href="#block" class="headerlink" title="block"></a>block</h2><h2 id="none"><a href="#none" class="headerlink" title="none"></a>none</h2></li>
+</ul>
+<hr>
+<h1 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h1><p>float：left|right|none<br>浮动溢出：元素设置float属性则脱离了文档流，父级元素不能随float元素扩展，导致元素溢出到容器外；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt; </span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.news &#123;</span><br><span class="line">  background-color: yellow;</span><br><span class="line">  border: solid 1px black;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">.left &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">.right&#123;</span><br><span class="line">  float: right;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;news&quot;&gt;</span><br><span class="line">&lt;span class=&quot;left&quot;&gt;left text&lt;/span&gt;</span><br><span class="line">&lt;span class=&quot;right&quot;&gt;right text&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/css/float.jpg" alt="float"></p>
+<h2 id="加一个空白的clear元素"><a href="#加一个空白的clear元素" class="headerlink" title="加一个空白的clear元素"></a>加一个空白的clear元素</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// style加入</span><br><span class="line">.clear&#123;</span><br><span class="line">    clear:both;</span><br><span class="line">&#125;</span><br><span class="line">// div class=“news”中加入子元素</span><br><span class="line">&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>优点：简单，兼容性好；缺点：无用元素；</p>
+<h2 id="父级元素自身设置float"><a href="#父级元素自身设置float" class="headerlink" title="父级元素自身设置float"></a>父级元素自身设置float</h2><p>可消除内部浮动，但是会破坏整体布局，不推荐；</p>
+<h2 id="父级元素设置属性overflow-hidden"><a href="#父级元素设置属性overflow-hidden" class="headerlink" title="父级元素设置属性overflow:hidden"></a>父级元素设置属性overflow:hidden</h2><p>将父级元素设置为BFC 会将内部float的盒子高度计算进去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.news &#123;</span><br><span class="line">  background-color: yellow;</span><br><span class="line">  border: solid 1px black;</span><br><span class="line">  overflow:hidden;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用邻接元素处理"><a href="#使用邻接元素处理" class="headerlink" title="使用邻接元素处理"></a>使用邻接元素处理</h2><p>在邻接元素的样式加入clear:both；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;news&quot;&gt;</span><br><span class="line">&lt;span class=&quot;left&quot;&gt;left text&lt;/span&gt;</span><br><span class="line">&lt;span class=&quot;right&quot;&gt;right text&lt;/span&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="加入伪类-after"><a href="#加入伪类-after" class="headerlink" title="加入伪类:after"></a>加入伪类:after</h2><p>在父元素末尾加入一个看不见的块元素;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// style加入</span><br><span class="line">.clearfix:after&#123;</span><br><span class="line">  content: &quot;020&quot;; </span><br><span class="line">  display: block; </span><br><span class="line">  height: 0; </span><br><span class="line">  clear: both; </span><br><span class="line">  visibility: hidden;  </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&lt;div class=&quot;news clearfix&quot;&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="实现元素的垂直居中"><a href="#实现元素的垂直居中" class="headerlink" title="实现元素的垂直居中"></a>实现元素的垂直居中</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;index&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        html, body &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">			background-color:yellow;</span><br><span class="line">			padding:0;</span><br><span class="line">			margin:0;</span><br><span class="line">        &#125;</span><br><span class="line">        .content &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 300px;</span><br><span class="line">			border:2px solid black;</span><br><span class="line">            background-color: orange;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/css/cross-center.jpg" alt="cross-center"></p>
+<h2 id="父元素display设置为flex布局"><a href="#父元素display设置为flex布局" class="headerlink" title="父元素display设置为flex布局"></a>父元素display设置为flex布局</h2><p>align-items:center表示交叉轴上的项目居中显示；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">html, body &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background-color:yellow;</span><br><span class="line">            padding:0;</span><br><span class="line">            margin:0;</span><br><span class="line">            display:flex;</span><br><span class="line">            align-items:center;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="将该元素绝对定位"><a href="#将该元素绝对定位" class="headerlink" title="将该元素绝对定位"></a>将该元素绝对定位</h2><p>margin-top设置的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.content &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 300px;</span><br><span class="line">            border:2px solid black;</span><br><span class="line">            background-color: orange;</span><br><span class="line">            margin:0 auto;</span><br><span class="line">            position:relative;</span><br><span class="line">            top:50%;</span><br><span class="line">            margin-top:-150px;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用transform-translateY-50"><a href="#使用transform-translateY-50" class="headerlink" title="使用transform: translateY(-50%)"></a>使用transform: translateY(-50%)</h2><h2 id="与上面方法类似，仅仅将margin-top方法改成translateY，意思是上移自身高度的一半；"><a href="#与上面方法类似，仅仅将margin-top方法改成translateY，意思是上移自身高度的一半；" class="headerlink" title="与上面方法类似，仅仅将margin-top方法改成translateY，意思是上移自身高度的一半；"></a>与上面方法类似，仅仅将margin-top方法改成translateY，意思是上移自身高度的一半；</h2><h2 id="html，body设置height为100-，margin-0-padding-0"><a href="#html，body设置height为100-，margin-0-padding-0" class="headerlink" title="html，body设置height为100%，margin:0,padding:0"></a>html，body设置height为100%，margin:0,padding:0</h2><p>css元素width若未设置，自动分配浏览器最大宽度，而height是由内容元素撑起的，此时父元素的高度依赖于子元素的高度；而当高度设置为百分比，则依赖于父元素，向上查找定高，如中途有一个高度未设置，或者为auto，则该元素的height百分比无效；设置最高层html，body的height为100%，即获取浏览器定高，后面的子元素也就有了依赖。</p>
+<hr>
+<h2 id="css外边距合并"><a href="#css外边距合并" class="headerlink" title="css外边距合并"></a>css外边距合并</h2><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/css/css_margin_collapsing.asp">外边距合并</a><br>垂直方向上，外部div未设置border或padding，使margin与内div的margin之间没有界限，因此合并选取较大的。</p>
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><p>是一个JavaScript库，可用以选取与操作HTML元素，css操作，DOM的遍历和修改；</p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>元素，id，.class,属性….；<br>$(“p”),$(“#idname”),$(“.classname”),$(“[href]”)….</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>鼠标：click,dbclick,mouseenter,mouseleave,hover;<br>键盘：keypress,keydown,keyup;<br>表单：submit,change,focus,blur;<br>文档/窗口事件：load,resize,scroll,upload;</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><strong>隐藏/显示：</strong>hide(),show(),toggle();<br><strong>淡入/淡出：</strong>fadeIn(),fadeOut(),fadeToggle(),fadeTo();<br><strong>滑动：</strong>slideDown(),slideUp(),slideToggle();<br><strong>动画：</strong>animate({params},speed,callback);<br><strong>停止动画</strong>：stop(stopAll,goToEnd)，默认(false,false)<br>stopAll=true表示清除动画队列，直接停止，再次点击开始则从当前位置开始；<br>            为false则会完成队列中下一个动画；<br>goToEnd=true表示完成当前动画到结尾，<br>            为false则停止不动；</p>
+<h2 id="与HTML相关"><a href="#与HTML相关" class="headerlink" title="与HTML相关"></a>与HTML相关</h2><p>可获取和设置以下值：<br>text()文本内容；<br>html()元素HTML标记；<br>val()表单字段；<br>attr()属性值；<br><strong>添加元素：</strong><br>append()<br>prepend()所选元素内增加子元素；<br>after()<br>before()所选元素前后添加子元素；<br><strong>删除元素：</strong><br>remove()移除所选元素（包括该元素的子元素）；<br>empty()删除所选元素的所有子元素；<br><strong>css操作：</strong><br>addClass()<br>removeClass()<br>toggleClass()增加/删除某样式类；<br>css()设置或获取某样式属性值；</p>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p><strong>祖先：</strong><br>parent()直接父元素；<br>parents()所有祖先元素；<br>parentUntil()介于某孩子到某祖先间的所有元素（不包括本身）；<br><strong>后代：</strong><br>children()直接子元素；<br>find()所有后代元素；<br><strong>同胞：</strong><br>siblings()所有同胞；<br>next()下一个同胞；<br>nextAll()接下来的所有同胞；<br>nextUntil()介于某个元素到另一个元素之间的所有同胞元素；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/11/23/css/" data-id="ckxpsvc3w0011dowbd6qf9azs" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-git-note" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/10/17/git-note/">git-note</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/10/17/git-note/" class="article-date">
+  <time datetime="2019-10-17T05:53:24.000Z" itemprop="datePublished">2019-10-17</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <p><strong>分布式版本控制系统</strong>：不必联网，强大的分支管理；<br>通过跟踪版本库中所有文件（文本文件的改动情况）；</p>
+<ul>
+<li>git add file 修改内容放到暂存区（stage）</li>
+<li>git commit -m “des” 暂存区内容提交到当前分支</li>
+<li>git status </li>
+<li>git diff file / git diff HEAD – file 工作区与版本库里最新版本的区别</li>
+</ul>
+<h2 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h2><ul>
+<li>git log 显示从近到远的提交日志 / git reflog 记录每一次命令日志</li>
+<li><strong>版本回退</strong>：git reset –hard HEAD^|[commit_id]，HEAD为指向当前版本的指针，完全回到上一个版本</li>
+</ul>
+<p>–hard 撤销commit add 并且删除工作区代码<br>–mixed 撤销commit add 工作区代码不变<br>–soft 撤销commit 不撤销add 工作区代码不变 </p>
+<ul>
+<li>git reset HEAD file 把暂存区修改撤销掉(unstage，add撤销)</li>
+<li>git checkout – file 撤销工作区修改,一键还原</li>
+</ul>
+<hr>
+<p><img src="/img/git-note/revert.jpg" alt="回退场景"></p>
+<ul>
+<li>git rm file 删除版本库中文件</li>
+</ul>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>使用ssh与github远程仓库关联<br>ssh安全机制，基于密钥的安全验证：<br>创建一对密钥，公钥放在服务器</p>
+<ol>
+<li>客户端发送链接请求，将公钥传送给服务器</li>
+<li>服务器收到密钥，与自身公钥进行比较</li>
+<li>一致则使用公钥加密“质询”发送给客户端</li>
+<li>客户端私钥解密，发送给服务器</li>
+<li>完成登录</li>
+</ol>
+<ul>
+<li>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>:username/repo-name.git 本地库与远程仓库做关联</li>
+<li>git push -u origin master 将本地库所有内容推送到远程库中(-u 关联分支)</li>
+<li>git clone url 准备好远程库，克隆到本地库</li>
+</ul>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>HEAD指针指向当前分支；</p>
+<ul>
+<li>git checkout -b dev 创建分支(-b 并切换)：增加一个dev指针，HEAD指向dev;</li>
+<li>git add . / git commit -m “des”</li>
+<li>git checkout master 切换到master分支;</li>
+<li>git merge dev 将dev分支合并到master上：将master指针改为dev;</li>
+<li>git merge –no-ff dev 合并，不使用fast forward模式，master为新的指针</li>
+</ul>
+<hr>
+<p><img src="/img/git-note/branch.jpg" alt="分支策略"></p>
+<ul>
+<li>git stash 将工作现场存储起来</li>
+<li>git stash list 查看暂存列表</li>
+<li>git stash pop 恢复</li>
+<li>git stash apply stash@{0} 应用</li>
+<li>git cherry-pick <commit> 把bug提交的修改“复制”到当前分支，避免重复劳动</li>
+</ul>
+<p><strong>多人协同开发：</strong></p>
+<ul>
+<li>git checkout -b dev origin/dev 创建远程origin的dev分支到本地</li>
+<li>git branch –set-upstream-to=origin/<branch> dev 本地与远程origin/<branch>的链接</li>
+</ul>
+<hr>
+<p><img src="/img/git-note/origin-dev.jpg" alt="多人协作"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/17/git-note/" data-id="ckxpsvc3d0004dowb352l1oys" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-刷题/LeetCode" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/10/13/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/10/13/%E5%88%B7%E9%A2%98/LeetCode/" class="article-date">
+  <time datetime="2019-10-13T05:52:03.000Z" itemprop="datePublished">2019-10-13</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/13/%E5%88%B7%E9%A2%98/LeetCode/" data-id="ckxq1b49q000oeswbegqd2an5" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-刷题/leetcode刷题笔记" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/10/09/%E5%88%B7%E9%A2%98/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">leetcode刷题笔记</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/10/09/%E5%88%B7%E9%A2%98/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-10-09T10:34:36.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <h2 id="STL-set用法"><a href="#STL-set用法" class="headerlink" title="STL set用法"></a>STL set用法</h2><p> <strong>特点</strong>：集合，元素唯一，对元素自动进行升序排序;<br>set<int> s;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s.begin();</span><br><span class="line">s.end();</span><br><span class="line">s.insert(x); //插入x元素</span><br><span class="line">s.erase(x);  s.erase(it) //删除x元素 ,it迭代器指向元素</span><br><span class="line">s.find(x); //查找x元素,不存在则返回s.end()</span><br><span class="line">s.lower_bound(x); //大于或等于x，得到定位器</span><br></pre></td></tr></table></figure>
+<h2 id="22-括号生成"><a href="#22-括号生成" class="headerlink" title="22. 括号生成"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/generate-parentheses/">22. 括号生成</a></h2><ol>
+<li>暴力递归解法:得到n对”()”的全排列情况，验证平衡；<br>时间复杂度O(2^2n);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; result;</span><br><span class="line">    </span><br><span class="line">    // &#x27;(&#x27;==1  ; &#x27;)&#x27;==-1</span><br><span class="line">    bool vaild(int array[],int len)&#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">            res+=array[i];</span><br><span class="line">            if(res&lt;0)return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return (res==0);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void generate(int arr[],int pos,int len)&#123;</span><br><span class="line">        if(pos == len)&#123;</span><br><span class="line">            //判断是否有效</span><br><span class="line">            if(vaild(arr,len))&#123;</span><br><span class="line">                //将数组转换为string</span><br><span class="line">                string temp=&quot;&quot;;</span><br><span class="line">                for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">                    if(arr[i]==1)temp+=&quot;(&quot;;</span><br><span class="line">                    else temp+=&quot;)&quot;;</span><br><span class="line">                &#125;</span><br><span class="line">                result.push_back(temp);</span><br><span class="line">                // ncout&lt;&lt;result.size();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            arr[pos]=1;</span><br><span class="line">            generate(arr,pos+1,len);</span><br><span class="line">            arr[pos]=-1;</span><br><span class="line">            generate(arr,pos+1,len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vector&lt;string&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        int *arr=new int[2*n];</span><br><span class="line">        generate(arr,0,2*n);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>动态规划：初始状态为0的””,1的”()”，接下来的值根据前面得到的：(p组括号的所有可能情况)+q组括号的所有可能情况,其中p+q=n-1;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        vector&lt;vector&lt;string&gt; &gt;dp(n+1);</span><br><span class="line">        dp[0]=&#123;&quot;&quot;&#125;;</span><br><span class="line">        dp[1]=&#123;&quot;()&quot;&#125;;</span><br><span class="line">        if(n==1||n==0)return dp[n];</span><br><span class="line">        for(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;i;j++)&#123;</span><br><span class="line">                for(int x=0;x&lt;dp[j].size();x++)&#123;</span><br><span class="line">                    for(int y=0;y&lt;dp[i-j-1].size();y++)&#123;</span><br><span class="line">                        string res=&quot;(&quot;+dp[j][x]+&quot;)&quot;+dp[i-j-1][y];</span><br><span class="line">                        dp[i].push_back(res);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="23-合并K个排序链表"><a href="#23-合并K个排序链表" class="headerlink" title="23.合并K个排序链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/submissions/">23.合并K个排序链表</a></h2><ol>
+<li>最简单粗暴的链表操作：</li>
+</ol>
+<ul>
+<li>原始k个链表已排好序；</li>
+<li>在每个列表的表头筛选最小值，即结果链表的下一个值</li>
+<li>更新获得最小值的当前链表的下一个值</li>
+<li>重复第2步，循环直到所有k个链表到达结尾；</li>
+</ul>
+<p>时间复杂度O(m*k),m为所有k个链表结点总数；额外的空间复杂度O(m);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findMin(vector&lt;ListNode*&gt;&amp; lists)&#123;</span><br><span class="line">        int len=lists.size();</span><br><span class="line">        int min=99999999;</span><br><span class="line">        int minindex=-1;</span><br><span class="line">        for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">            if(lists[i]!=NULL &amp;&amp; lists[i]-&gt;val&lt;min)&#123;</span><br><span class="line">                min=lists[i]-&gt;val;</span><br><span class="line">                minindex=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return minindex;//-1结束：所有链表都已遍历完成</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123;</span><br><span class="line">        ListNode *head=new ListNode(0);</span><br><span class="line">        ListNode *pre=head;</span><br><span class="line">        int pos=0;</span><br><span class="line">        while((pos=findMin(lists))&gt;=0)&#123;</span><br><span class="line">            ListNode *newnode=new ListNode(lists[pos]-&gt;val);</span><br><span class="line"></span><br><span class="line">            //找到最小下标，进行一定操作</span><br><span class="line">            if(lists[pos]-&gt;next!=NULL)lists[pos]=lists[pos]-&gt;next;</span><br><span class="line">            else lists[pos]=NULL;</span><br><span class="line">        </span><br><span class="line">            pre-&gt;next=newnode;</span><br><span class="line">            pre=newnode;</span><br><span class="line">        &#125;</span><br><span class="line">        return head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>分治法:将链表两两合并（递归）;<br>时间复杂度:O(mlogk),空间复杂度O(1);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* MergeTwoSortedList(ListNode* l1,ListNode* l2)&#123;</span><br><span class="line">        if(l1==NULL)&#123;</span><br><span class="line">            return l2;</span><br><span class="line">        &#125;</span><br><span class="line">        if(l2==NULL)&#123;</span><br><span class="line">            return l1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(l1-&gt;val &lt;= l2-&gt;val)&#123;</span><br><span class="line">            l1-&gt;next=MergeTwoSortedList(l1-&gt;next,l2);</span><br><span class="line">            return l1;</span><br><span class="line">        &#125;</span><br><span class="line">        l2-&gt;next=MergeTwoSortedList(l1,l2-&gt;next);</span><br><span class="line">        return l2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists,int left,int right)&#123;</span><br><span class="line">        //最小分治，左右边界相等</span><br><span class="line">        if( left == right )&#123;</span><br><span class="line">            return lists[left];</span><br><span class="line">        &#125;</span><br><span class="line">        int mid=(left+right)/2;</span><br><span class="line">        ListNode* l1=mergeKLists(lists,left,mid);</span><br><span class="line">        ListNode* l2=mergeKLists(lists,mid+1,right);</span><br><span class="line">        return MergeTwoSortedList(l1,l2);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123;</span><br><span class="line">        int len=lists.size();</span><br><span class="line">        if(len==0)return NULL;</span><br><span class="line">        ListNode* res=mergeKLists(lists,0,len-1);</span><br><span class="line">        return  res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/09/%E5%88%B7%E9%A2%98/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="ckxq1b1mt000meswbg575dkr2" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-生活感悟/保研历程" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/30/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/%E4%BF%9D%E7%A0%94%E5%8E%86%E7%A8%8B/">保研历程</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/09/30/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/%E4%BF%9D%E7%A0%94%E5%8E%86%E7%A8%8B/" class="article-date">
+  <time datetime="2019-09-30T03:03:38.000Z" itemprop="datePublished">2019-09-30</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <p>今天是9.30日，离填完系统已经过了2天，离浙大面试过了有5天了，还是觉得很难过，尤其在是社交网络上看到自己身边的人收获了一大堆的美好，就好像最后只有我，两手空空。不完满是人生的常态吧，这几个月以来的纠结和痛苦虽然没有一个很好的结果，但是并非没有意义，这个意义的量化就在于我在这次失败中吸取了怎样的教训，做出了多少的改变。</p>
+        
+          <p>
+            <a class="article-more-link" href="/2019/09/30/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/%E4%BF%9D%E7%A0%94%E5%8E%86%E7%A8%8B/">
+              Read More...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/30/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/%E4%BF%9D%E7%A0%94%E5%8E%86%E7%A8%8B/" data-id="ckxq1a2ii000ceswb7f9b8nnu" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-刷题/pat题型总结" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/17/%E5%88%B7%E9%A2%98/pat%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/">pat题型总结</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/09/17/%E5%88%B7%E9%A2%98/pat%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2019-09-17T14:32:31.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <hr>
+<h1 id="窗口排队模拟"><a href="#窗口排队模拟" class="headerlink" title="窗口排队模拟"></a>窗口排队模拟</h1><h2 id="eg1-1017-Queueing-at-Bank-25-分"><a href="#eg1-1017-Queueing-at-Bank-25-分" class="headerlink" title="eg1. 1017 Queueing at Bank (25 分)"></a>eg1. <a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/problems/994805491530579968">1017 Queueing at Bank (25 分)</a></h2><p> <strong>题意</strong>：给出顾客数与窗口数，以及顾客的到达时间和处理时间；Bank的工作时间在8.-17.；在8.前到达需要等到8.后才开始办理，17.点及之后不办理，88了；计算平均等待时间；<br>
+        
+          <p>
+            <a class="article-more-link" href="/2019/09/17/%E5%88%B7%E9%A2%98/pat%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/">
+              Read More...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/17/%E5%88%B7%E9%A2%98/pat%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/" data-id="ckxq1b6j3000peswb5nn26js3" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-课程/软件工程复习" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/14/%E8%AF%BE%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/">软件工程复习</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/09/14/%E8%AF%BE%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2019-09-14T10:37:02.000Z" itemprop="datePublished">2019-09-14</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <h2 id="软件危机"><a href="#软件危机" class="headerlink" title="软件危机"></a>软件危机</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>在计算机软件开发、使用和维护过程中遇到的一系列严重问题和难题</p>
+<h3 id="产生的主要原因"><a href="#产生的主要原因" class="headerlink" title="产生的主要原因"></a>产生的主要原因</h3><p>软件规模越来越大，结构越来越复杂，开发管理困难，生产方式落后，开发工具落后</p>
+        
+          <p>
+            <a class="article-more-link" href="/2019/09/14/%E8%AF%BE%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/">
+              Read More...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/14/%E8%AF%BE%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" data-id="ckxq1aeet000geswb29tb4zs7" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-课程/操作系统复习" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/06/%E8%AF%BE%E7%A8%8B/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">操作系统复习</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/09/06/%E8%AF%BE%E7%A8%8B/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2019-09-06T01:28:13.000Z" itemprop="datePublished">2019-09-06</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <h1 id="四大特性"><a href="#四大特性" class="headerlink" title="四大特性"></a>四大特性</h1><ol>
+<li><strong>并发</strong>：同一时间内多个程序执行,一个程序的执行尚未结束，另一个的程序执行已经开始；<br>并行(parallel)与并发(concurrentcy)的区别：
+        
+          <p>
+            <a class="article-more-link" href="/2019/09/06/%E8%AF%BE%E7%A8%8B/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
+              Read More...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/06/%E8%AF%BE%E7%A8%8B/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/" data-id="ckxq1ab2e000eeswb1zti9p8g" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-刷题/PAT刷题笔记" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/01/%E5%88%B7%E9%A2%98/PAT%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">PAT刷题笔记</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/09/01/%E5%88%B7%E9%A2%98/PAT%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2019-09-01T10:15:14.000Z" itemprop="datePublished">2019-09-01</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <h2 id="1001-Public-Bike-Management"><a href="#1001-Public-Bike-Management" class="headerlink" title="1001:Public Bike Management"></a>1001:<a target="_blank" rel="noopener" href="https://www.nowcoder.com/pat/5/problem/4324">Public Bike Management</a></h2><p>题目大意：自行车数量管理，有一问题站点，解决问题求路径最短，并且让图中每一个站点的自行车数量都为c/2，outbikes最小，inbikes最小；</p>
+        
+          <p>
+            <a class="article-more-link" href="/2019/09/01/%E5%88%B7%E9%A2%98/PAT%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+              Read More...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/01/%E5%88%B7%E9%A2%98/PAT%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="ckxq1azto000keswb8vwz1gu4" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-算法/查找与排序" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/08/31/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F/">查找与排序</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/31/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time datetime="2019-08-31T06:07:11.000Z" itemprop="datePublished">2019-08-31</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <h1 id="查找算法"><a href="#查找算法" class="headerlink" title="查找算法"></a>查找算法</h1><h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><ul>
+<li>顺序查找又称线性查找。它的过程为：<strong>从查找表的最后一个元素开始逐个与给定关键字比较</strong>，若某个记录的关键字和给定值比较相等，则查找成功，否则，若直至第一个记录，其关键字和给定值比较都不等，则表明表中没有所查记录查找不成功，它的缺点是效率低下。</li>
+</ul>
+        
+          <p>
+            <a class="article-more-link" href="/2019/08/31/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F/">
+              Read More...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/31/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F/" data-id="ckxq19kkx000aeswbcq6n6u7k" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+  </nav>
+  
+</section>
+</div>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-bar-chart"></i> <span id="busuanzi_value_site_pv"></span></li>
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

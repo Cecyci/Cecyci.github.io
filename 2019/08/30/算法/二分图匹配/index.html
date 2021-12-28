@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    二分图匹配 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-算法/二分图匹配" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  二分图匹配
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" class="article-date">
+  <time datetime="2019-08-30T06:13:20.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p><a target="_blank" rel="noopener" href="http://blog.csdn.net/dark_scope/article/details/8880547">匈牙利算法</a><br>腾，有机会上，没机会创造机会也要上；</p>
+<span id="more"></span>
+<h3 id="hduoj2063"><a href="#hduoj2063" class="headerlink" title="hduoj2063"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2063">hduoj2063</a></h3><p> <strong>经典，求最大匹配；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int girls[505];//存放男孩的匹配女孩</span><br><span class="line">bool flag[505];//存放标记</span><br><span class="line">bool relation[505][505];//存放关系</span><br><span class="line">int k,m,n;</span><br><span class="line"></span><br><span class="line">//第x个女孩找匹配对象</span><br><span class="line">bool f(int x)</span><br><span class="line">&#123;</span><br><span class="line">    for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">        if(relation[x][j]&amp;&amp;!flag[j])&#123;</span><br><span class="line">            flag[j]=1;</span><br><span class="line">            if(girls[j]==0||f(girls[j]))&#123;</span><br><span class="line">                girls[j]=x;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;k)!=EOF&amp;&amp;k!=0)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;m,&amp;n);</span><br><span class="line">        int x,y;</span><br><span class="line">        memset(relation,0,sizeof(relation));</span><br><span class="line">        memset(girls,0,sizeof(girls));</span><br><span class="line">        for(int i=0;i&lt;k;i++)&#123;</span><br><span class="line">            cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">            relation[x][y]=1;</span><br><span class="line">        &#125;</span><br><span class="line">        int sum=0;</span><br><span class="line">        for(int i=0;i&lt;m;i++)&#123;</span><br><span class="line">            memset(flag,0,sizeof(flag));</span><br><span class="line">            if(f(i+1))sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;sum&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1068"><a href="#hduoj1068" class="headerlink" title="hduoj1068"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1068">hduoj1068</a></h3><p> <strong>求没有关系的最大子集：总数-最大匹配数/2</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int maze[1010][1010];</span><br><span class="line">bool vis[1010];</span><br><span class="line">int flag[1010];</span><br><span class="line">int num;</span><br><span class="line"></span><br><span class="line">bool f(int x)</span><br><span class="line">&#123;</span><br><span class="line">    for(int j=0;j&lt;num;j++)&#123;</span><br><span class="line">        if(maze[x][j]==1&amp;&amp;!vis[j])&#123;</span><br><span class="line">            vis[j]=1;</span><br><span class="line">            if(flag[j]==-1||f(flag[j]))&#123;</span><br><span class="line">                flag[j]=x;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;num)!=EOF)&#123;</span><br><span class="line">        memset(maze,0,sizeof(maze));</span><br><span class="line">        int a,b;</span><br><span class="line">        for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            scanf(&quot;%d: (%d)&quot;,&amp;a,&amp;b);</span><br><span class="line">            int tmp=0;</span><br><span class="line">            for(int j=0;j&lt;b;j++)&#123;</span><br><span class="line">                scanf(&quot;%d&quot;,&amp;tmp);//使用cin超时</span><br><span class="line">                maze[i][tmp]=1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int sum=0;</span><br><span class="line">        memset(flag,-1,sizeof(flag));</span><br><span class="line">        //第i个学生的是否可配对</span><br><span class="line">        for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            memset(vis,0,sizeof(vis));</span><br><span class="line">            if(f(i))sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        //学生总数-最大匹配数/2</span><br><span class="line">        cout&lt;&lt;num-sum/2&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/30/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" data-id="ckxq190kl0007eswbgytbdp5i" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      最短路径
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">贪心算法</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

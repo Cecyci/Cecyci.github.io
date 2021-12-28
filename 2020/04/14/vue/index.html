@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    vue |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-vue" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  vue
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/14/vue/" class="article-date">
+  <time datetime="2020-04-14T02:24:13.000Z" itemprop="datePublished">2020-04-14</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p><strong>v-html</strong>:用于输出html代码；<br><strong>v-bind</strong>:绑定属性，用以响应更新属性值；<br>    1. 样式class————v-bind:class={‘class1’:use}/v-bind:class=’activeClassName’];<br>    2. 样式id；<br>    3. href；<br>    4. 内联样式；<br><strong>v-if</strong>、<strong>v-else</strong>、<strong>v-else-if</strong>；<br><strong>v-model</strong>：双向数据绑定，view绑定model值，model监听view变化；<br><strong>v-on</strong>：事件处理器；<br><strong>v-show</strong>：根据条件展示元素；<br><strong>v-for</strong>：循环迭代对象、整数；</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h2 id="计算属性computed"><a href="#计算属性computed" class="headerlink" title="计算属性computed"></a>计算属性computed</h2><p><strong>与methods区别</strong>：methods在页面重新渲染时运行，computed依赖缓存，只有相关依赖值发生变化时重新获取；<br>可设置set函数，在获得值时设置其他值；get函数得到值的格式；</p>
+<h2 id="监听属性watch"><a href="#监听属性watch" class="headerlink" title="监听属性watch"></a>监听属性watch</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>全局组件：Vue.component(‘tagName’,options)；<br>局部组件：components:{<br>            ‘tagName’:componentName<br>        }<br>组件间传值：父-&gt;子：props属性设置；<br>           子-&gt;父：自定义事件;<br>                   在子组件中定义childMethod，其中调用this.$emit(‘toParent’);<br>                   在父组件中模板v-on绑定toParent方法；<br>                   即能实现在子组件中调用方法时，父组件能够接收到消息；</p>
+<h2 id="directives注册指令"><a href="#directives注册指令" class="headerlink" title="directives注册指令"></a>directives注册指令</h2><h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ol>
+<li>定义路由组件；</li>
+<li>定义路由；</li>
+<li>创建router实例；</li>
+<li>创建和挂载；<h2 id="过渡-amp-动画"><a href="#过渡-amp-动画" class="headerlink" title="过渡&amp;动画"></a>过渡&amp;动画</h2></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/14/vue/" data-id="ckxpsvc3j000edowbdbcq6ypj" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2020/05/07/javascript/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      javascript
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2020/03/24/html/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">html</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

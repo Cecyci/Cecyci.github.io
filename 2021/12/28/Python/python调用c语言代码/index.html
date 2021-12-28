@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    python调用c语言代码 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Python/python调用c语言代码" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  python调用c语言代码
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/12/28/Python/python%E8%B0%83%E7%94%A8c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81/" class="article-date">
+  <time datetime="2021-12-28T08:09:10.000Z" itemprop="datePublished">2021-12-28</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>原本的机器学习项目都用python写好，老板这边又出了个新需求，将部分核心代码抽出来，用C编写，然后通过dll的方式引用，目的就是为了隐藏部分核心代码。</p>
+<span id="more"></span>
+
+<h1 id="1-编写C代码"><a href="#1-编写C代码" class="headerlink" title="1. 编写C代码"></a>1. 编写C代码</h1><p>使用codeblocks建dll库</p>
+<ol>
+<li>选择ddl</li>
+</ol>
+<p><img src="http://r4tsuv730.hd-bkt.clouddn.com/img/image-20211228161228492.png" alt="image-20211228161228492"></p>
+<ol start="2">
+<li>main.c编写要导出的函数</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;main.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> DLL_EXPORT <span class="title">add_int</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span>* DLL_EXPORT <span class="title">Kernel</span><span class="params">( <span class="keyword">double</span>* x,  <span class="keyword">double</span>* y,  <span class="keyword">int</span> row, <span class="keyword">int</span> col,<span class="keyword">double</span> gamma, <span class="keyword">double</span>* w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     <span class="keyword">double</span> *res = <span class="literal">NULL</span>;</span><br><span class="line">     res =(<span class="keyword">double</span>*) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">double</span>)*row*col);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,row,col); <span class="comment">// c 数组空间创建</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">            res[i*col + j] = x[i*col + j] + y[i*col + j]; <span class="comment">// 访问二维指针数组</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>main.h 编写导出头文件（默认）</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __MAIN_H__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __MAIN_H__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*  To use this exported function of dll, include this header</span></span><br><span class="line"><span class="comment"> *  in your project.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> BUILD_DLL</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> DLL_EXPORT __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> DLL_EXPORT __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="comment">// 这边编写导出的函数名称</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> DLL_EXPORT <span class="title">add_int</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span>* DLL_EXPORT <span class="title">Kernel</span><span class="params">(<span class="keyword">double</span>*,<span class="keyword">double</span>*,<span class="keyword">int</span>,<span class="keyword">int</span>,<span class="keyword">double</span>,<span class="keyword">double</span>*)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// __MAIN_H__</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>编译<br>编译成功后在对应文件夹bin/Debug生成dll文件</li>
+</ol>
+<h1 id="2-C调用dl"><a href="#2-C调用dl" class="headerlink" title="2 C调用dl"></a>2 C调用dl</h1><ol>
+<li><p>新建Console Application</p>
+</li>
+<li><p>main.c代码编写</p>
+</li>
+</ol>
+<p>  注意点：</p>
+<ul>
+<li>导入头文件”windows.h”</li>
+<li>函数定义 typedef int (*addInt)(int,int);</li>
+<li>导入DLL: HMODULE LoadLibrary</li>
+<li>获得dll的函数：add_int = (addInt)GetProcAddress(hDll, “add_int”);</li>
+<li>FreeLibrary</li>
+<li>若c参数为二维指针，需要两次malloc</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;windows.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int</span> <span class="params">(*addInt)</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">float</span>** (*myKernel)(<span class="keyword">float</span>**,<span class="keyword">float</span>**,<span class="keyword">int</span>,<span class="keyword">int</span>,<span class="keyword">float</span>,<span class="keyword">float</span>*);</span><br><span class="line">addInt add_int;</span><br><span class="line">myKernel kernel;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//asm(&quot;int3&quot;);</span></span><br><span class="line">    HMODULE hDll = LoadLibrary(<span class="string">&quot;dll路径&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (hDll != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Hello world!\n&quot;</span>);</span><br><span class="line">        add_int = (addInt)GetProcAddress(hDll, <span class="string">&quot;add_int&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> res_add = add_int(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,res_add);</span><br><span class="line"></span><br><span class="line">        kernel = (myKernel)GetProcAddress(hDll,<span class="string">&quot;Kernel&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">float</span> arr1[<span class="number">2</span>][<span class="number">3</span>]=&#123;&#123;<span class="number">1.1</span>,<span class="number">2.0</span>,<span class="number">3.0</span>&#125;,&#123;<span class="number">1.1</span>,<span class="number">2</span>,<span class="number">3.0</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">float</span> arr2[<span class="number">2</span>][<span class="number">3</span>]=&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">float</span> (*temp1)[<span class="number">3</span>] = arr1;</span><br><span class="line">        <span class="keyword">float</span> (*temp2)[<span class="number">3</span>] = arr2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">float</span> **x = <span class="literal">NULL</span>;</span><br><span class="line">     x = (<span class="keyword">float</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">float</span>*)*<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">            x[i]=(<span class="keyword">float</span>*)<span class="built_in">malloc</span>(<span class="number">3</span>*<span class="keyword">sizeof</span>(<span class="keyword">float</span>));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">                  *(*(x+i)+j) = <span class="number">5</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">float</span> arr3[<span class="number">3</span>] =&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">float</span> *w = arr3;</span><br><span class="line">        <span class="keyword">float</span>** res = kernel(x,x,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0.2</span>,w);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d %d %f\n &quot;</span>, i,j,*(*(res+i)+j));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    FreeLibrary(hDll);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-Python调用Dll"><a href="#3-Python调用Dll" class="headerlink" title="3 Python调用Dll"></a>3 Python调用Dll</h1><ol>
+<li>下载与导入ctypes包</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ctypes <span class="keyword">import</span> cdll,c_float,c_int</span><br><span class="line"><span class="keyword">import</span> numpy.ctypeslib <span class="keyword">as</span> npct</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> win32api</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>导入dll</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mykernel = cdll.LoadLibrary(<span class="string">&#x27;dll路径&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>要调用的C函数参数(argtypes)与返回值(restype)都有二维指针，因此需要预先设置</p>
+<p>npct.ndpointer表示是指针</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mykernel.Kernel.argtypes = [npct.ndpointer(dtype=np.float64,ndim=<span class="number">2</span>,shape = (<span class="number">2</span>, <span class="number">3</span>),flags=<span class="string">&#x27;C_CONTIGUOUS&#x27;</span>),</span><br><span class="line">                           npct.ndpointer(dtype=np.float64,ndim=<span class="number">2</span>,shape = (<span class="number">2</span>, <span class="number">3</span>),flags=<span class="string">&#x27;C_CONTIGUOUS&#x27;</span>),</span><br><span class="line">                           c_int,</span><br><span class="line">                           c_int,</span><br><span class="line">                           c_float,</span><br><span class="line">                           npct.ndpointer(dtype=np.float64,ndim=<span class="number">1</span>,flags=<span class="string">&#x27;C_CONTIGUOUS&#x27;</span>)]</span><br><span class="line">    mykernel.Kernel.restype = npct.ndpointer(dtype=np.float64,ndim=<span class="number">2</span>,shape = (<span class="number">2</span>, <span class="number">3</span>),flags=<span class="string">&#x27;C_CONTIGUOUS&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>numpy数组</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x=[[1,2,3],[4,5,6]]</span><br><span class="line">   x=np.array(x,dtype=np.float64)</span><br><span class="line">   w=[1,1,1]</span><br><span class="line">   w=np.array(w,dtype=np.float64)</span><br><span class="line">  </span><br><span class="line">   print(&#x27;addreess&#x27;,k)</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>调用函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res = mykernel.Kernel(x,x,x.shape[0],x.shape[1],c_float(0.1),w)</span><br><span class="line"># res就是返回的二维数组numpy</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>Free</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">win32api.FreeLibrary(mykernel._handle)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>一个大坑：</strong></p>
+<p>python的float32要对应C的float类型，float64对应 double类型，否则会造成地址访问冲突<br>具体报错：exception: access violation reading 0xFFFFFFFFFFFFFFFF</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="!https://www.dazhuanlan.com/hannah_l/topics/1509272">使用ctypes调用C函数库加速Numpy运算</a></p>
+<p><a href="!https://blog.csdn.net/qq_29630271/article/details/74012465">Codeblocks上dll的创建和使用</a></p>
+<p><a href="!https://cloud.tencent.com/developer/news/333692">Python如何调用DLL函数：C数组与numpy数组传递</a></p>
+<p><a href="!https://docs.huihoo.com/scipy/scipy-zh-cn/ctypes_numpy.html">Ctypes和NumPy</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/28/Python/python%E8%B0%83%E7%94%A8c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81/" data-id="ckxq17omo0001pkwb3d72f733" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2021/12/28/Python/python%E5%B0%81%E8%A3%85%E7%AE%97%E6%B3%95%E5%8C%85%EF%BC%88%E5%8F%AFimport%EF%BC%89/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      python封装算法包（可import）
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2020/12/19/java%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">JAVA基础</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

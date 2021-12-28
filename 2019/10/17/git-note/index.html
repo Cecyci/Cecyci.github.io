@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    git-note |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-git-note" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  git-note
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/10/17/git-note/" class="article-date">
+  <time datetime="2019-10-17T05:53:24.000Z" itemprop="datePublished">2019-10-17</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p><strong>分布式版本控制系统</strong>：不必联网，强大的分支管理；<br>通过跟踪版本库中所有文件（文本文件的改动情况）；</p>
+<ul>
+<li>git add file 修改内容放到暂存区（stage）</li>
+<li>git commit -m “des” 暂存区内容提交到当前分支</li>
+<li>git status </li>
+<li>git diff file / git diff HEAD – file 工作区与版本库里最新版本的区别</li>
+</ul>
+<h2 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h2><ul>
+<li>git log 显示从近到远的提交日志 / git reflog 记录每一次命令日志</li>
+<li><strong>版本回退</strong>：git reset –hard HEAD^|[commit_id]，HEAD为指向当前版本的指针，完全回到上一个版本</li>
+</ul>
+<p>–hard 撤销commit add 并且删除工作区代码<br>–mixed 撤销commit add 工作区代码不变<br>–soft 撤销commit 不撤销add 工作区代码不变 </p>
+<ul>
+<li>git reset HEAD file 把暂存区修改撤销掉(unstage，add撤销)</li>
+<li>git checkout – file 撤销工作区修改,一键还原</li>
+</ul>
+<hr>
+<p><img src="/img/git-note/revert.jpg" alt="回退场景"></p>
+<ul>
+<li>git rm file 删除版本库中文件</li>
+</ul>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>使用ssh与github远程仓库关联<br>ssh安全机制，基于密钥的安全验证：<br>创建一对密钥，公钥放在服务器</p>
+<ol>
+<li>客户端发送链接请求，将公钥传送给服务器</li>
+<li>服务器收到密钥，与自身公钥进行比较</li>
+<li>一致则使用公钥加密“质询”发送给客户端</li>
+<li>客户端私钥解密，发送给服务器</li>
+<li>完成登录</li>
+</ol>
+<ul>
+<li>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>:username/repo-name.git 本地库与远程仓库做关联</li>
+<li>git push -u origin master 将本地库所有内容推送到远程库中(-u 关联分支)</li>
+<li>git clone url 准备好远程库，克隆到本地库</li>
+</ul>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>HEAD指针指向当前分支；</p>
+<ul>
+<li>git checkout -b dev 创建分支(-b 并切换)：增加一个dev指针，HEAD指向dev;</li>
+<li>git add . / git commit -m “des”</li>
+<li>git checkout master 切换到master分支;</li>
+<li>git merge dev 将dev分支合并到master上：将master指针改为dev;</li>
+<li>git merge –no-ff dev 合并，不使用fast forward模式，master为新的指针</li>
+</ul>
+<hr>
+<p><img src="/img/git-note/branch.jpg" alt="分支策略"></p>
+<ul>
+<li>git stash 将工作现场存储起来</li>
+<li>git stash list 查看暂存列表</li>
+<li>git stash pop 恢复</li>
+<li>git stash apply stash@{0} 应用</li>
+<li>git cherry-pick <commit> 把bug提交的修改“复制”到当前分支，避免重复劳动</li>
+</ul>
+<p><strong>多人协同开发：</strong></p>
+<ul>
+<li>git checkout -b dev origin/dev 创建远程origin的dev分支到本地</li>
+<li>git branch –set-upstream-to=origin/<branch> dev 本地与远程origin/<branch>的链接</li>
+</ul>
+<hr>
+<p><img src="/img/git-note/origin-dev.jpg" alt="多人协作"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/17/git-note/" data-id="ckxpsvc3d0004dowb352l1oys" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/11/23/css/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      css
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/10/13/%E5%88%B7%E9%A2%98/LeetCode/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">LeetCode</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    面经 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-面经" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  面经
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/07/%E9%9D%A2%E7%BB%8F/" class="article-date">
+  <time datetime="2020-05-07T06:27:11.000Z" itemprop="datePublished">2020-05-07</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h1 id="面经刷题"><a href="#面经刷题" class="headerlink" title="面经刷题"></a>面经刷题</h1><h2 id="洗牌算法"><a href="#洗牌算法" class="headerlink" title="洗牌算法"></a>洗牌算法</h2><p>注意分号的使用，当以”(“、”[“、”/“、”+”、”-“为行的开头，可能与前一行形成调用或者元素引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr=[1,2,3,4,5,6]</span><br><span class="line">function myShuffle(arr)&#123;</span><br><span class="line">    for(let i=arr.length;i;i--)&#123;</span><br><span class="line">        let j = Math.floor(Math.random()*i);</span><br><span class="line">        [arr[i-1],arr[j]]=[arr[j],arr[i-1]];</span><br><span class="line">    &#125;</span><br><span class="line">    return arr</span><br><span class="line">&#125;</span><br><span class="line">myShuffle(arr)</span><br></pre></td></tr></table></figure>
+
+<h2 id="CSS两列布局"><a href="#CSS两列布局" class="headerlink" title="CSS两列布局"></a>CSS两列布局</h2><h3 id="将content右栏margin-left，main主栏float-sidebar定宽并设置float，margin-left"><a href="#将content右栏margin-left，main主栏float-sidebar定宽并设置float，margin-left" class="headerlink" title="将content右栏margin-left，main主栏float,sidebar定宽并设置float，margin-left;"></a>将content右栏margin-left，main主栏float,sidebar定宽并设置float，margin-left;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">	</span><br><span class="line">&lt;style&gt;</span><br><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0</span><br><span class="line">	&#125;</span><br><span class="line">.main &#123;</span><br><span class="line">	float:left;</span><br><span class="line">	width:100%;</span><br><span class="line">	&#125;</span><br><span class="line">.main .content&#123;</span><br><span class="line">	margin-left:200px;</span><br><span class="line">	&#125;</span><br><span class="line">.sidebar&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	float:left; // 先设置float布局，下一步margin-left才有效</span><br><span class="line">	margin-left:-100%; // 向左移动一个屏幕的距离</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;main&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">		content-right</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;sidebar&quot;&gt;</span><br><span class="line">	sidebar-leftsidebar-leftsidebar-left</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>这他娘的为啥不行！无语</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0</span><br><span class="line">	&#125;</span><br><span class="line">.main &#123;</span><br><span class="line">	overflow:hidden;</span><br><span class="line">    border: 1px solid red;</span><br><span class="line">	&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">	background:red;</span><br><span class="line">	margin-left:200px;</span><br><span class="line">	height: 200px;</span><br><span class="line">	&#125;</span><br><span class="line">.sidebar&#123;</span><br><span class="line">	float:left;</span><br><span class="line">	width:200px;</span><br><span class="line">	height: 200px;</span><br><span class="line">	background:skyblue;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="content右栏position-absolute-left-200px"><a href="#content右栏position-absolute-left-200px" class="headerlink" title="content右栏position:absolute,left:200px"></a>content右栏position:absolute,left:200px</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">	</span><br><span class="line">&lt;style&gt;</span><br><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0</span><br><span class="line">	&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	left:200px;</span><br><span class="line">	right:0;</span><br><span class="line">	top:0;</span><br><span class="line">	&#125;</span><br><span class="line">.sidebar&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">	content-right</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;sidebar&quot;&gt;</span><br><span class="line">	sidebar-leftsidebar-leftsidebar-left</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="flex布局：设置sidebar的order为-1，长度为200px-content右栏flex-1；"><a href="#flex布局：设置sidebar的order为-1，长度为200px-content右栏flex-1；" class="headerlink" title="flex布局：设置sidebar的order为-1，长度为200px;content右栏flex:1；"></a>flex布局：设置sidebar的order为-1，长度为200px;content右栏flex:1；</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">	</span><br><span class="line">&lt;style&gt;</span><br><span class="line">*&#123;</span><br><span class="line">	margin:0;</span><br><span class="line">	padding:0</span><br><span class="line">	&#125;</span><br><span class="line">.main&#123;</span><br><span class="line">	display:flex;</span><br><span class="line">	&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">	flex:1; // 我的理解是：在没有其他元素的情况下，flex-grow:1可以霸占剩余区域</span><br><span class="line">	&#125;</span><br><span class="line">.sidebar&#123;</span><br><span class="line">	flex:0 0 200px;</span><br><span class="line">	order:-1;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;main&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">		content-right</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div class=&quot;sidebar&quot;&gt;</span><br><span class="line">		sidebar-leftsidebar-leftsidebar-left</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="浏览器渲染过程"><a href="#浏览器渲染过程" class="headerlink" title="浏览器渲染过程"></a>浏览器渲染过程</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000017329980">参考链接</a></p>
+<ol>
+<li>解析HTML文档-&gt;DOM树；（JS脚本的加载会阻塞DOM树的生成）</li>
+<li>解析CSS规则-&gt;CSSOM树；（会阻塞涉及CSS的JS脚本与对应DOM树的构建)<br>CSS解析与DOM解析可同时进行;</li>
+<li>构建渲染树：遍历DOM树，对每个节点查找对应的CSS规则（去除display:none,script,meta,link;visibility或opacity隐藏的节点依然存在）</li>
+<li>回流：（布局）在设备视口确切位置与尺寸大小；</li>
+<li>绘制：将可见节点转换为屏幕的具体像素，绘制在浏览器上。</li>
+</ol>
+<p>触发：</p>
+<ol>
+<li>开始渲染；</li>
+<li>浏览器窗口变化；</li>
+<li>DOM元素添加或删除；</li>
+<li>元素尺寸大小，位置；</li>
+<li>元素内部内容改变；</li>
+<li>style属性改变。</li>
+</ol>
+<p>如何优化：</p>
+<ol>
+<li>css样式改变最小化；</li>
+<li>动画元素脱离文档流；</li>
+<li>先在脱离文档流的情况下构建好，再插入到主文档中:<br>（display:none/fragment构建子树/拷贝到脱离文档的节点中）</li>
+<li>避免触发同步布局事件;</li>
+<li>css3硬件加速（GPU加速）。</li>
+</ol>
+<h2 id="typeOf的返回值"><a href="#typeOf的返回值" class="headerlink" title="typeOf的返回值"></a>typeOf的返回值</h2><p>undefined,string,number,boolen,function,object(null,array);<br><strong>基本类型：</strong>string number boolen null undefined;<br><strong>引用类型：</strong>function object array data regexp;</p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36422236/article/details/88763187">参考链接</a><br>块级格式化上下文：盒子模型，独立的块，包含内部所有元素，除了被包含在新BFC下的元素；隔离的独立容器，不受外部元素的影响，内部也不会影响到外部元素。<br>特性：<br>在垂直方向上一个接一个放置；<br>属于一个BFC的相邻margin会重叠（防止外边距合并）<br>不与外部float box重叠(自适应两栏)；<br>计算内部float box的高度(清除浮动)<br>产生方法：<br>float不为none;<br>position:absolute,fixed;<br>display:inline-block,table-cell,flex,table-caption,inline-flex;<br>overflow不为visible;</p>
+<h2 id="观察者模式与发布-订阅模式"><a href="#观察者模式与发布-订阅模式" class="headerlink" title="观察者模式与发布-订阅模式"></a>观察者模式与发布-订阅模式</h2><p><a target="_blank" rel="noopener" href="https://juejin.im/post/5a14e9edf265da4312808d86">参考链接</a><br>相同点：Observer订阅，Subject接受事件，以及notify通知观察者；<br>不同，<br>观察者模式同步，发布者与订阅者直接连接，单个应用程序空间中实现；<br>发布-订阅模式异步，中间有消息代理进行通信，松散耦合，交叉应用模式。</p>
+<h2 id="函数运算符优先级等综合练习"><a href="#函数运算符优先级等综合练习" class="headerlink" title="函数运算符优先级等综合练习"></a>函数运算符优先级等综合练习</h2><p><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/351261">参考链接</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;</span><br><span class="line">    getName = function () &#123; alert (1); &#125;;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = function () &#123; alert (2);&#125;;</span><br><span class="line">Foo.prototype.getName = function () &#123; alert (3);&#125;;</span><br><span class="line">var getName = function () &#123; alert (4);&#125;;</span><br><span class="line">function getName() &#123; alert (5);&#125;</span><br><span class="line"> </span><br><span class="line">//请写出以下输出结果：</span><br><span class="line">Foo.getName();</span><br><span class="line">getName();</span><br><span class="line">Foo().getName();</span><br><span class="line">getName();</span><br><span class="line">new Foo.getName();</span><br><span class="line">new Foo().getName();</span><br><span class="line">new new Foo().getName();</span><br></pre></td></tr></table></figure>
+<h3 id="Foo-getName-2"><a href="#Foo-getName-2" class="headerlink" title="Foo.getName() // 2"></a>Foo.getName() // 2</h3><ol>
+<li>静态属性与静态方法在没有初始化实例时就能访问；</li>
+<li>要调用公有属性、公有方法，必须new；公有方法不能调用私有属性与方法；</li>
+<li>外部不可调用私有属性和方法。</li>
+</ol>
+<h3 id="getName-4"><a href="#getName-4" class="headerlink" title="getName() // 4"></a>getName() // 4</h3><p>函数声明发生变量提升，被同名函数表达式覆盖；</p>
+<h3 id="Foo-getName-1"><a href="#Foo-getName-1" class="headerlink" title="Foo.getName() // 1"></a>Foo.getName() // 1</h3><p>Foo()函数执行返回window全局对象，其中getName覆盖函数；</p>
+<h3 id="getName-1"><a href="#getName-1" class="headerlink" title="getName() // 1"></a>getName() // 1</h3><p>全局对象的getName()函数；</p>
+<h3 id="new-Foo-getName-2"><a href="#new-Foo-getName-2" class="headerlink" title="new Foo.getName() // 2"></a>new Foo.getName() // 2</h3><p>运算符优先级：.=new有参&gt;new无参&gt;函数调用<br>所以</p>
+<ol>
+<li>先Foo.getName得到静态方法；</li>
+<li>再new得到该方法的实例；</li>
+<li>最后调用。</li>
+</ol>
+<h3 id="new-Foo-getName-3"><a href="#new-Foo-getName-3" class="headerlink" title="new Foo().getName() // 3"></a>new Foo().getName() // 3</h3><ol>
+<li>先new有参,初始化Foo实例(实例返回引用类型this，则为实例对象)；</li>
+<li>.操作符，获得函数getName(沿原型链)；</li>
+<li>执行函数；</li>
+</ol>
+<h3 id="new-new-Foo-getName-3"><a href="#new-new-Foo-getName-3" class="headerlink" title="new new Foo().getName() // 3"></a>new new Foo().getName() // 3</h3><ol>
+<li>先new有参（第2个new），初始化Foo实例；</li>
+<li>.操作符，获得函数getName(沿原型链)；</li>
+<li>new无参（第1个new),得到该方法实例；</li>
+<li>最后调用。</li>
+</ol>
+<h2 id="什么是闭包？优缺点？"><a href="#什么是闭包？优缺点？" class="headerlink" title="什么是闭包？优缺点？"></a>什么是闭包？优缺点？</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>匿名函数引用了它的包含函数内的变量，该函数在外部被调用时，产生了闭包，可以使用包含函数的变量，使其可以常驻内存，不随函数销毁而销毁。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>变量长期驻扎在内存中；</li>
+<li>私有成员避免污染全局变量；<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3></li>
+<li>变量占用内存，导致性能下降；循环引用Html元素会内存泄漏；</li>
+<li>闭包是操作包含函数变量的共有方法，不能随意改变该变量值；</li>
+</ol>
+<h2 id="三次握手-四次挥手"><a href="#三次握手-四次挥手" class="headerlink" title="三次握手 四次挥手"></a>三次握手 四次挥手</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38950316/article/details/81087809">参考链接</a></p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><ol>
+<li>进程表示资源调度的基本单位，线程是CPU调度的最小单位；</li>
+<li>进程内即同一进程的线程数据共享，而不同进程之间数据不共享；</li>
+<li>进程表示程序进入到CPU后：获取程序上下文+CPU执行+保存程序上下文的过程；</li>
+<li>线程则是在CPU执行过程中，分为不同的块；</li>
+<li>进程消耗较大的计算机资源；</li>
+<li>进程：互斥锁、信号量；</li>
+</ol>
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lvdabao/p/es6-promise-1.html">参考链接</a><br>状态仅由异步操作的结果决定resolve/reject 不可更改 可实现回调链<br>用维护状态、传递状态的方式使回调函数能及时调用<br>简单、灵活<br>then catch Promise.all Promise.race</p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>简化了函数定义，相当于匿名函数；<br>不同的是匿名函数的this为windows或为undefined，<br>而这个this按照词法作用域绑定了，即指向外层调用者。</p>
+<h2 id="generator生成器"><a href="#generator生成器" class="headerlink" title="generator生成器"></a>generator生成器</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/diligenceday/p/5488037.html">参考链接</a><br>特性：function与函数名之间又一个*号，函数内部yield表达式；<br>功能：自动生成并返回迭代器，调用next方法开始运行，移动迭代器指针，直到移到函数末尾，返回undefined。<br>如果给next传参数，那么该参数作为上一个yield语句的返回值；<br>注：为异步操作。</p>
+<h2 id="vue双向数据绑定"><a href="#vue双向数据绑定" class="headerlink" title="vue双向数据绑定"></a>vue双向数据绑定</h2><ol>
+<li>遍历data对象；</li>
+<li>添加Observer对象：Object.defineProperty()数据劫持————getter、setter；<br>getter中初始化Watcher，用于依赖收集Dep；setter触发数据变更事件notify通知Watcher，用于派发更新；<h2 id="手写一个单例模式"><a href="#手写一个单例模式" class="headerlink" title="手写一个单例模式"></a>手写一个单例模式</h2><h3 id="直接执行函数，闭包封装instance"><a href="#直接执行函数，闭包封装instance" class="headerlink" title="直接执行函数，闭包封装instance"></a>直接执行函数，闭包封装instance</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var A;</span><br><span class="line">(function(name)&#123;</span><br><span class="line">	var instance;</span><br><span class="line">	A=function(name)&#123;</span><br><span class="line">		if(instance)&#123;</span><br><span class="line">			return instance;</span><br><span class="line">		&#125;</span><br><span class="line">		instance=this</span><br><span class="line">		this.name=name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;());</span><br><span class="line">var a=new A();</span><br><span class="line">var b=new A(); // a===b</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><p>var,let,function都会发生变量提升；<br>var：变量声明首先进入内存，相当于提升到了当前作用域顶部，但是没有初始化和赋值；<br>可以在还没有声明赋值时调用该变量，值为undefined；<br>let：也存在变量声明，不同的是出现暂时性死区，在赋值之前不允许该值调用；<br>function：变量提升，同时函数赋值也放到了顶部。</p>
+<h2 id="JS事件循环"><a href="#JS事件循环" class="headerlink" title="JS事件循环"></a>JS事件循环</h2><p>JavaScipt是单线程的；<br>同步任务：在执行栈中按顺序执行，后面的任务必须等待前面任务执行完成；<br>异步任务：挂载出来的任务，不会进入主线程，而进入任务队列；当异步任务完成，则在任务队列中增加进入标志，主线程可在同步任务执行完成后，读取该任务到执行栈中，执行回调函数；</p>
+<p>settimeout异步任务，在经过等待的时间后，才有可能被读取到执行栈中，或者是继续等待执行栈中同步任务与任务队列前面的异步任务执行结束。</p>
+<h2 id="node-js事件循环"><a href="#node-js事件循环" class="headerlink" title="node.js事件循环"></a>node.js事件循环</h2><p>nextTick:在读取任务队列前进行，即在所有异步任务之前；<br>setImediate:在下一个eventloop时执行，即所有异步任务之后。</p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>所有的构造函数都有存在一个原型对象，prototype指针指向该原型对象；<br>由该函数构造的实例都可继承原型对象，__proto__指向；<br>该原型对象存在constructor属性指回构造函数。<br>原型链即原型对象为另外一个对象的实例，构成原型链条；<br>当读取当前实例属性或方法时，从实例，到原型，再由下至上去父类的原型中找，最终到Object的原型；<br>因为所有函数都由Object继承而来，原型链的最顶部是Object的原型。</p>
+<h2 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h2><h2 id="键头函数的this指向和普通函数的区别"><a href="#键头函数的this指向和普通函数的区别" class="headerlink" title="键头函数的this指向和普通函数的区别"></a>键头函数的this指向和普通函数的区别</h2><h2 id="Vue-Router生命周期"><a href="#Vue-Router生命周期" class="headerlink" title="Vue Router生命周期"></a>Vue Router生命周期</h2><h2 id="网页的优化"><a href="#网页的优化" class="headerlink" title="网页的优化"></a>网页的优化</h2><h2 id="怎么判断数组"><a href="#怎么判断数组" class="headerlink" title="怎么判断数组"></a>怎么判断数组</h2><h2 id="webpack原理？有没有自己配过"><a href="#webpack原理？有没有自己配过" class="headerlink" title="webpack原理？有没有自己配过"></a>webpack原理？有没有自己配过</h2><h1 id="项目整理"><a href="#项目整理" class="headerlink" title="项目整理"></a>项目整理</h1><h2 id="统一入口平台"><a href="#统一入口平台" class="headerlink" title="统一入口平台"></a>统一入口平台</h2><h3 id="如何部署项目pm2"><a href="#如何部署项目pm2" class="headerlink" title="如何部署项目pm2"></a>如何部署项目pm2</h3><p>带有负载均衡功能的Node应用的进程管理器，避免多个终端同时开启，并且可以实现进程永远活着。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm run pm2 // npm启动pm2</span><br><span class="line">pm2 deploy deploy.yaml production setup  // 首次部署项目</span><br><span class="line">pm2 start 项目启动文件 --name myname//启动node项目</span><br><span class="line">pm2 list // 列出pm2管理的所有进程信息</span><br></pre></td></tr></table></figure>
+<h3 id="权限多选树"><a href="#权限多选树" class="headerlink" title="权限多选树"></a>权限多选树</h3><p>el-tree组件的改进;封装新el-tree与el-select，得到mutil-select-tree;<br>为实现调用该多选树的父组件与相应子组件的通信：<br>父-&gt;子传递数据：<br>父组件在引用时，设置组件属性:data=xxx；子组件中设置props-data 同名属性；<br>(加冒号表示属性为变量或表达式)<br>子-&gt;父传递数据：<br>子组件定义事件childevent：emit(“eventname”,事件中携带的数据);子组件绑定方法@click=’childevent’;父组件在引用子组件时定义@childevent，并编写相应的取数据代码。<br>组件间调用方法：设置refs。</p>
+<h2 id="传片系统"><a href="#传片系统" class="headerlink" title="传片系统"></a>传片系统</h2><h3 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h3><p>异步组件：将代码分段，防止打包文件过大；使用工厂函数引入全局/局部组件，当需要该组件时，才调用工厂函数，执行异步解析组件，并保存供未来渲染。</p>
+<h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><p>定义：状态管理模式，集中式存储管理应用的所有组件的状态，并保证状态以一种可预测的方式发生变化；<br>解决问题：多个视图依赖同一状态，不同视图需要对同一状态进行操作；<br><strong>state</strong>：在计算属性中获得状态：this.$store.state.count/…mapState({});<br><strong>getter</strong>：认为是store的计算属性，根据依赖值缓存，对state进行过滤等操作；<br>使用方法：this.$store.getters.doneTodosCount/this.$store.getters.getTodoById(2)/…mapGetters([]);<br><strong>mutation</strong>：更改状态的唯一方式是提交mutation，同步操作，事件类型+回调函数；<br>触发：store.commit({<br>  type: ‘increment’,<br>  amount: 10<br>})  /<br> …mapMutations([])<br><strong>action</strong>:提交mutation，可以包含任意异步操作；<br>触发：store.dispatch(‘increment’)/…mapActions([])</p>
+<h3 id="页面权限控制"><a href="#页面权限控制" class="headerlink" title="页面权限控制"></a>页面权限控制</h3><p>钩子函数，在每一个路由变化中，判断是否存在token；<br>true：不为登录页则获取当前用户信息；<br>false：不在白名单中则跳转回登录页；<br>router.beforeEach(async(to,from,next))</p>
+<h3 id="vue生命周期钩子函数"><a href="#vue生命周期钩子函数" class="headerlink" title="vue生命周期钩子函数"></a>vue生命周期钩子函数</h3><p>beforeCreated created beforeMounted mounted beforeUpdated updated beforeDestoryed destroyed<br>created创建实例，获取data属性；（在这里执行DOM操作时一定要放在Vue.nextTick()回调函数中；<br>mounted渲染DOM，获取el属性。</p>
+<h3 id="vue-router钩子函数"><a href="#vue-router钩子函数" class="headerlink" title="vue-router钩子函数"></a>vue-router钩子函数</h3><p>全局：beforeEach,afterEach;<br>路由：beforeEnter,afterEnter;<br>组件：beforeRouteEnter,beforeRouteUpdate,beforeRouteLeave.</p>
+<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h3><p><strong>原理：</strong>Vue异步执行DOM更新，当数据改变时，Vue开启队列，存放与该事件循环相关的数据改变；<br>当下一次事件循环tick中，再清空该队列，并且执行相关操作。<br><strong>使用情况：</strong>created中涉及DOM操作；在数据变化后中需要进行涉及随数据改变的DOM的操作；</p>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>通过少量数据交换，实现页面部分的异步更新；<br>vue.js 2.0 推荐使用axios;<br>基本使用方法：axios.post(url,{}).then().catch();<br>请求配置项：url,method,baseURL,headers,params,data,timeout,responseType;<br>响应信息：data，status,statusText,headers,config;<br>可设置拦截器:axios.interceptors.request.use()；<br>可默认设置配置：axios.default.baseURL;</p>
+<h3 id="http头部信息"><a href="#http头部信息" class="headerlink" title="http头部信息"></a>http头部信息</h3><p><strong>请求：</strong><br>User-Agent浏览器信息；<br>Accept：接受的数据格式；<br>Content-Type:服务器文件类型；<br>connection：连接形式：保持连接keep-alive/关闭close；<br>Authorization：客户端回应身份验证信息；<br>If-None-Match:对应Etag，判断上次的资源标志是否有更改；<br>If-Modified-Since：对应Last-Modified，判断上次的更改时间后是否有更改；<br><strong>响应：</strong><br>status：服务器处理结果；<br>Expires：实体过期时间；<br>Cache-Control：告诉客户端缓存规则；<br>Last-Modified:最近一次修改时间；<br>Etag：资源标志；<br>Age：距离上次缓存没更新的时间；</p>
+<h3 id="vue-cli脚手架快速搭建项目"><a href="#vue-cli脚手架快速搭建项目" class="headerlink" title="vue-cli脚手架快速搭建项目"></a>vue-cli脚手架快速搭建项目</h3><p>可自动生成vue项目，webpack打包；</p>
+<h3 id="vue全家桶"><a href="#vue全家桶" class="headerlink" title="vue全家桶"></a>vue全家桶</h3><p>vue-cli+vue-router+vuex+ElementUI</p>
+<h3 id="chart组件式开发"><a href="#chart组件式开发" class="headerlink" title="chart组件式开发"></a>chart组件式开发</h3><h4 id="定义子组件并引出"><a href="#定义子组件并引出" class="headerlink" title="定义子组件并引出"></a>定义子组件并引出</h4><p>export default{<br>    name:…,<br>    props:{ // 自定义图表组件传递属性给echart：<br>        className:{<br>            type:String,<br>            default:’…’<br>        }<br>    }<br>    data(){<br>        return {</p>
+<pre><code>    &#125;
+&#125;
+methods:&#123;
+
+&#125;
+</code></pre>
+<p>}</p>
+<h4 id="父组件中引入子组件"><a href="#父组件中引入子组件" class="headerlink" title="父组件中引入子组件"></a>父组件中引入子组件</h4><p>import<br>再引出给别的组件作子组件<br>要设置:components:{children}<br>页面中使用```<children /></p>
+<h4 id="chart-resize防抖"><a href="#chart-resize防抖" class="headerlink" title="chart resize防抖"></a>chart resize防抖</h4><p><strong>mounted阶段:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.__resizeHandler = debounce(() =&gt; &#123; // 防抖</span><br><span class="line">      if (this.chart) &#123;</span><br><span class="line">        this.chart.resize()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, 100)</span><br><span class="line">window.addEventListener(&#x27;resize&#x27;, this.__resizeHandler) // 添加事件监听</span><br></pre></td></tr></table></figure>
+<p><strong>beforeDestory:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (!this.chart) &#123;</span><br><span class="line">      return</span><br><span class="line">    &#125;</span><br><span class="line">window.removeEventListener(&#x27;resize&#x27;, this.__resizeHandler) // 移除事件监听</span><br><span class="line">this.chart.dispose()</span><br><span class="line">this.chart = null</span><br></pre></td></tr></table></figure>
+
+<h3 id="el-tabs-选项卡切换"><a href="#el-tabs-选项卡切换" class="headerlink" title="el-tabs 选项卡切换"></a>el-tabs 选项卡切换</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &lt;el-tabs v-model=&quot;activeName&quot; type=&quot;card&quot; @tab-click=&quot;handleClick&quot;&gt;</span><br><span class="line"> 	&lt;el-tab-pane v-for=&quot;item in tabMapOptions&quot; :key=&quot;item.key&quot; :label=&quot;item.label&quot; :name=&quot;item.key&quot;&gt;</span><br><span class="line">        &lt;keep-alive&gt;</span><br><span class="line">          &lt;tab-pane v-if=&quot;item.key===&#x27;yes&#x27;&quot; /&gt;</span><br><span class="line">          &lt;tann-pane v-if=&quot;item.key===&#x27;no&#x27;&quot; /&gt;</span><br><span class="line">        &lt;/keep-alive&gt;</span><br><span class="line">    &lt;/el-tab-pane&gt;</span><br><span class="line">&lt;/el-tabs&gt;</span><br></pre></td></tr></table></figure>
+<p>tab-pane与tann-pane为子组件，以v-if判断item.key，显示对应的界面。<br>keep-alive 对经常使用的界面保存组件状态，直接从缓存中读取，避免重复渲染。</p>
+<h3 id="SCSS"><a href="#SCSS" class="headerlink" title="SCSS"></a>SCSS</h3><p>CSS预处理器，先有SASS，后有SCSS；<br>分段加载scss文件，将其组合为完整的css规则；</p>
+<ol>
+<li>$嵌入变量，#{}嵌入字符串;</li>
+<li>&amp;表示父选择器;</li>
+<li>可嵌套;</li>
+<li>引入：@import …;</li>
+<li>mixin声明需要复用的CSS声明，include调用该片段：@mixin @include;</li>
+<li>继承：%style @extend</li>
+<li>可用操作符计算样式；</li>
+<li>命名空间内嵌套属性；</li>
+<li>@if @else @for;</li>
+<li>方法定义@function;</li>
+</ol>
+<h3 id="服务器读取图片"><a href="#服务器读取图片" class="headerlink" title="服务器读取图片"></a>服务器读取图片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.$http.get(&#x27;http://localhost:8088/project/image/byname/&#x27; + this.piclocal,</span><br><span class="line">    &#123; responseType: &#x27;arraybuffer&#x27; &#125;).then(response =&gt; &#123;</span><br><span class="line">        const data = response.data</span><br><span class="line">        console.log(response)</span><br><span class="line">        this.url = &#x27;data:image/png;base64,&#x27; + btoa(new Uint8Array(data).reduce((data, byte) =&gt; data + String.fromCharCode(byte), &#x27;&#x27;))</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>后台将byte数组传送给前端，前台解析图片在页面上展示：<br>btoa方法转换base-64编码；<br>reduce为Array对象的一个方法，接受一个函数作为累加器，数组从左到右开始累加,<br>reduce(function(total,currentValue,currentIndex,arr),initialValue);</p>
+<h1 id="字节面经"><a href="#字节面经" class="headerlink" title="字节面经"></a>字节面经</h1><h2 id="css怎么实现动画"><a href="#css怎么实现动画" class="headerlink" title="css怎么实现动画"></a>css怎么实现动画</h2><ol>
+<li>animation设置<br>animation-duration:动画时间；<br>animation-delay:动画延迟播放时间；<br>animation-timing-function:速度时间函数linear；<br>animation-direction:进行下一个动画方向alternative；<br>animation-iteration-count:重复播放次数infinite；<br>animation-play-state:动画状态paused|running;</li>
+<li>transition设置<br>transition: property duration timing-function delay<br>在hover上设置变化属性;</li>
+</ol>
+<h2 id="css怎么画三角形"><a href="#css怎么画三角形" class="headerlink" title="css怎么画三角形"></a>css怎么画三角形</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.triangle &#123;</span><br><span class="line">	width:0;</span><br><span class="line">	height:0;</span><br><span class="line">	border-width:0 50px 100px 50px;</span><br><span class="line">	border-color:transparent transparent red transparent;</span><br><span class="line">	border-style:solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="css怎么画圆形"><a href="#css怎么画圆形" class="headerlink" title="css怎么画圆形"></a>css怎么画圆形</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.circle &#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:100px;</span><br><span class="line">	border-radius:50%;</span><br><span class="line">	background:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="css画扇形"><a href="#css画扇形" class="headerlink" title="css画扇形"></a>css画扇形</h2><p>利用border 设置radius,其他border颜色设置为transparent，可得出一个90度的扇形；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.sector</span><br><span class="line">&#123;</span><br><span class="line">	width:0;</span><br><span class="line">	height:0;</span><br><span class="line">	border-width:50px 50px 50px 50px;</span><br><span class="line">	border-color:transparent yellow transparent transparent;</span><br><span class="line">	border-style:solid;</span><br><span class="line">	border-radius:50%;</span><br><span class="line">	transform:rotate(-45deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>画多个角度的<br>不知道为啥？？不行！！！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.circle &#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:100px;</span><br><span class="line">	position:relative:</span><br><span class="line">	overflow:hidden;</span><br><span class="line">	border-radius:50%;</span><br><span class="line">	background:red;</span><br><span class="line">	&#125;</span><br><span class="line">.slice</span><br><span class="line">&#123;</span><br><span class="line">	position:relative;</span><br><span class="line">	transform-origin:0% 100%;</span><br><span class="line">	overflow:hidden;</span><br><span class="line">	top:0;</span><br><span class="line">	right:0;</span><br><span class="line">	width:50%;</span><br><span class="line">	height:50%;</span><br><span class="line">&#125;</span><br><span class="line">.slice-one</span><br><span class="line">&#123;</span><br><span class="line">	background:green;</span><br><span class="line">	transform:rotate(30deg) skewY(-30deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="setTimeout-setInterval-requestAnimationFrame的区别"><a href="#setTimeout-setInterval-requestAnimationFrame的区别" class="headerlink" title="setTimeout setInterval requestAnimationFrame的区别"></a>setTimeout setInterval requestAnimationFrame的区别</h2><p>setTimeout在一段时间过后执行某种操作，setInterval以一定的时间间隔执行某种操作；<br>setInterval即使执行报错，也会循环执行；<br>使用上述两个进行动画操作，控制DOM，会有掉帧、抖动的情况，因为JS事件循环机制，操作不一定会在特定时间内执行，还有固定时间的原因；<br>所以引入requestAnimationFrame，提供动画API；<br>与setTimeout的几点区别：</p>
+<ol>
+<li>JS引擎；GUI引擎，与显示屏刷新频率保持一致；</li>
+<li>页面隐藏或最小化时，在后台执行；屏幕刷新任务停止；</li>
+<li>以固定的时间刷新界面；自动优化。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/07/%E9%9D%A2%E7%BB%8F/" data-id="ckxpsvc440017dowb09h618yd" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2020/08/01/2020%E6%9A%91%E5%81%87%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      2020暑假刷题笔记
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2020/05/07/javascript/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">javascript</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    操作系统复习 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-课程/操作系统复习" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  操作系统复习
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/09/06/%E8%AF%BE%E7%A8%8B/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2019-09-06T01:28:13.000Z" itemprop="datePublished">2019-09-06</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h1 id="四大特性"><a href="#四大特性" class="headerlink" title="四大特性"></a>四大特性</h1><ol>
+<li><strong>并发</strong>：同一时间内多个程序执行,一个程序的执行尚未结束，另一个的程序执行已经开始；<br>并行(parallel)与并发(concurrentcy)的区别：<span id="more"></span></li>
+</ol>
+<ul>
+<li>解释一<ul>
+<li>并行：<strong>两个或者多个事件</strong>在同一<strong>时刻</strong>发生；</li>
+<li>并发：<strong>两个或多个事件</strong>在同一<strong>时间间隔</strong>发生；</li>
+</ul>
+</li>
+<li>解释二<ul>
+<li>并行：<strong>不同实体</strong>的多个事件；</li>
+<li>并发：<strong>同一实体</strong>的多个事件；</li>
+</ul>
+</li>
+<li>解释三<ul>
+<li>并行：同一时刻，<strong>多条</strong>指令在<strong>多个</strong>处理器上同时执行；</li>
+<li>并发：同一时刻，<strong>一条</strong>指令分为<strong>多个进程指令</strong>，快速轮换执行，<strong>宏观同时</strong>；<br><img src="https://upload-images.jianshu.io/upload_images/7557373-72912ea8e89c4007.jpg" alt="并行">      <img src="https://upload-images.jianshu.io/upload_images/7557373-da64ffd6d1effaac.jpg" alt="并发"></li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>共享</strong>：系统中的<strong>资源</strong>可以被内存中多个并发执行的<strong>进线程共同使用</strong>；</li>
+<li><strong>虚拟</strong>：通过<strong>时分复用</strong>（如分时系统）以及<strong>空分复用</strong>（如虚拟内存）技术实现把一个物理实体虚拟为多个；</li>
+<li><strong>异步</strong>：系统中的进程是以走走停停的方式执行的，且以一种不可预知的速度推进;<br>同步与异步的区别:<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32725491/article/details/78679414">相关理解</a><br>同步：所有的操作都做完，才返回给用户；<br>异步：不用等所有操作等做完，就响应用户请求（消息队列）；<h1 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2>行为的一个规则叫程序（指令的有序集合，静态，作为资料永久存在），程序在处理机上执行时所发生的活动成为进程（执行过程，动态，暂时）；<br>进程：一个具有一定的独立功能的程序关于某个数据集的一次运行活动；<h2 id="进程与程序的区别"><a href="#进程与程序的区别" class="headerlink" title="进程与程序的区别"></a>进程与程序的区别</h2>进程=程序+数据；动态与静态；永久与暂存；进程可以创建其他进程；真实地描述并发；一个程序对应多个进程；<h2 id="引入进程的目的"><a href="#引入进程的目的" class="headerlink" title="引入进程的目的"></a>引入进程的目的</h2>为了使多个程序并发执行，以改善资源利用率，提高系统吞吐量（衡量性能，单位时间内系统处理用户的请求数）；</li>
+</ol>
+<h2 id="多进程组织的3个部分"><a href="#多进程组织的3个部分" class="headerlink" title="多进程组织的3个部分"></a>多进程组织的3个部分</h2><ol>
+<li>PCB：使多道程序环境下不能独立运行的程序（含数据），成为一个能<strong>独立运行</strong>的基本单位，与其他进程并发执行的进程；<strong>控制和管理</strong>进程；与进程<strong>一一对应</strong>，<strong>感知进程存在的唯一标志</strong>；包括进程标识符，状态，程序与数据地址，优先级，现场保护区；</li>
+<li>状态：就绪，阻塞，运行</li>
+<li>队列：就绪队列，阻塞队列<h2 id="CPU调度算法"><a href="#CPU调度算法" class="headerlink" title="CPU调度算法"></a>CPU调度算法</h2></li>
+</ol>
+<ul>
+<li>先来先服务（FCFS）：按作业或进程<strong>到达的先后次序</strong>依次调度（平均周转时间长）；</li>
+<li>短作业优先：选要求服务<strong>时间短</strong>的优先调度（确保了周转时间，但响应时间长）；</li>
+<li>高响应比优先：响应比=1+等待时间/要求服务时间；</li>
+<li>时间片轮转：按到达的先后分配时间片，不断轮转（时间片用完从运行态转到就绪态，暂停当前进程放到队列尾部，保证响应时间）；</li>
+<li>多级反馈队列：FIFS放入多个队列，有不同的优先级（优先级高时间片短），前一个队列在一定时间内没有运行完，将剩余进程或作业插入到下一个队列的结尾；<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2>是进程内一个相对独立的、可独立调度和指派的执行单元；线程可以创建其他线程；一个进程中至少拥有一个线程；不拥有资源；<br>TCB：PC程序计数器，SP栈，State状态，寄存器，线程id；<h2 id="引入线程目的"><a href="#引入线程目的" class="headerlink" title="引入线程目的"></a>引入线程目的</h2>减少程序并发执行时所付出的时空开销；<h2 id="进程与线程的区别"><a href="#进程与线程的区别" class="headerlink" title="进程与线程的区别"></a>进程与线程的区别</h2>进程：拥有资源的基本单位；创建、撤销、切换的系统开销大<br>线程：CPU调度和指派任务的的基本单位；同一进程内的同步与通信的实现较容易；线程间会互相影响；<h2 id="进程间同步"><a href="#进程间同步" class="headerlink" title="进程间同步"></a>进程间同步</h2>原则：</li>
+</ul>
+<ol>
+<li>空闲让进</li>
+<li>忙则等待</li>
+<li>有限等待</li>
+<li>让权等待<br>经典问题:生产者-消费者问题；哲学家进餐问题；读者-写者问题<br>死锁：<br>在两个或多个并发进程中，如果每个进程持有某种资源而又都等待别的进程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组进程产生了死锁。通俗地讲，就是两个或多个进程被无限期地阻塞、相互等待的一种状态。<br>产生条件：</li>
+<li>互斥条件        – 一个资源一次只能被一个进程使用</li>
+<li>请求保持条件 – 一个进程因请求资源而阻塞时，对已经获得资源保持不放 </li>
+<li>不可抢占条件 – 进程已获得的资源在未使用完之前不能强行剥夺</li>
+<li>循环等待条件 – 若干进程之间形成一种头尾相接的循环等待资源的关系<br>死锁处理：<br>预防死锁：破坏产生死锁的4个必要条件中的一个或者多个；实现起来比较简单，但是如果限制过于严格会降低系统资源利用率以及吞吐量<br>避免死锁：在资源的动态分配中，防止系统进入不安全状态(可能产生死锁的状态)-如银行家算法<br>检测死锁：允许系统运行过程中产生死锁，在死锁发生之后，采用一定的算法进行检测，并确定与死锁相关的资源和进程，采取相关方法清除检测到的死锁。实现难度大<br>解除死锁：与死锁检测配合，将系统从死锁中解脱出来（撤销进程或者剥夺资源）。对检测到的和死锁相关的进程以及资源，通过撤销或者挂起的方式，释放一些资源并将其分配给处于阻塞状态的进程，使其转变为就绪态。实现难度大</li>
+</ol>
+<h2 id="同步与互斥"><a href="#同步与互斥" class="headerlink" title="同步与互斥"></a>同步与互斥</h2><p> <strong>互斥</strong>：任何时候只有一个对象访问某个资源，绝不允许多个对象同时操作；<br> <strong>同步</strong>：事情执行之间的依赖关系，具有顺序的互斥，协调对共享数据的并发访问；</p>
+<p> <strong>信号量</strong>：协调共享资源访问，确保线程同步，PV操作（进/出临界区，s.value,s.queue）;必须有公共内存，不能用于分布式操作系统；<br> <strong>管程</strong>：将共享变量和对他们的操作集中在一个模块中，多线程互斥访问共享资源的程序结构。</p>
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>为多道程序的运行提供良好的环境，方便用户使用存储器，以提高存储器的利用率以及从逻辑上扩充存储器;<br>存储管理应具有以下功能:</p>
+<ul>
+<li>实现内存的分配和回收</li>
+<li>地址变换</li>
+<li>“扩充”内存容量</li>
+<li>进行存储保护<h2 id="连续-分区分配方式"><a href="#连续-分区分配方式" class="headerlink" title="连续/分区分配方式"></a>连续/分区分配方式</h2></li>
+<li>单一连续分配：内存分为OS区，用户区，只装入一道作业运行；</li>
+<li>固定分区存储管理：内存分为若干个固定大小的分区</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/inception6-lxc/p/9073983.html">操作系统面试常见问题</a></p>
+<h1 id="其他乱七八糟"><a href="#其他乱七八糟" class="headerlink" title="其他乱七八糟"></a>其他乱七八糟</h1><h2 id="文件系统和数据库系统的区别，哪个效率更高，为什么"><a href="#文件系统和数据库系统的区别，哪个效率更高，为什么" class="headerlink" title="文件系统和数据库系统的区别，哪个效率更高，为什么"></a>文件系统和数据库系统的区别，哪个效率更高，为什么</h2><p>1、文件系统实现以文件为单位的数据共享，数据库系统实现以记录和字段为单位的数据共享。<br>2、文件系统中的程序和数据有一定的联系，数据库系统中的程序和数据分离。<br>3、文件系统用文件将数据长期保存在外存上，数据库系统用数据库统一存储数据。<br>4、文件系统用操作系统中的存取方法对数据进行管理，数据库系统用DBMS统一管理和控制数据。<br>5、无结构与结构化</p>
+<h2 id="BIOS的意思，程序的可移植性"><a href="#BIOS的意思，程序的可移植性" class="headerlink" title="BIOS的意思，程序的可移植性"></a>BIOS的意思，程序的可移植性</h2><p>即微机的基本输入输出系统(Basic Input-Output System)，是集成在主板上的一个ROM芯片，是主板设计者为使主板能正确管理和控制电脑硬件系统而预置的管理程序，其中保存有微机系统最重要的基本输入输出程序、系统信息设置、开机上电自检程序和系统启动自举程序。</p>
+<h2 id="操作系统的基本概念"><a href="#操作系统的基本概念" class="headerlink" title="操作系统的基本概念"></a>操作系统的基本概念</h2><p>操作系统(Operating System, OS)：是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源分配，以提供给用户和其他软件方便的接口和环境的软件集合。<br>用户是雇主，操作系统是工人，计算机是机器(由处理器、存储器、设备、文件等几个部件构成)</p>
+<p> <strong>处理器管理</strong>：在多道程序的情况下，处理器的分配和运行都以进程(或线程)为基本单位，因而对处理器的管理可以分配为对进程的管理<br> <strong>存储器管理</strong>：包括内存分配、地址映射、内存保护等等<br> <strong>文件管理</strong>：计算机中的信息都是以文件的形式存在的，操作系统中负责文件管理的部分被称为文件系统，文件管理包括文件存储空间的管理、目录管理和读写保护等等<br> <strong>设备管理</strong>：主要任务是完成用户的I/O请求，包括缓冲管理、设备分配、虚拟设备等等<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/misayaaaaa/article/details/73087967">链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baozhiqiangjava/article/details/79603394">复试常见题</a><br>(<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34149581/article/details/80003320">https://blog.csdn.net/qq_34149581/article/details/80003320</a>)<br>(<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38106472/article/details/95788897#ICMP%E6%98%AF%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE%EF%BC%9F%E5%A4%84%E4%BA%8E%E5%93%AA%E4%B8%80%E5%B1%82%EF%BC%9F">https://blog.csdn.net/qq_38106472/article/details/95788897#ICMP%E6%98%AF%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE%EF%BC%9F%E5%A4%84%E4%BA%8E%E5%93%AA%E4%B8%80%E5%B1%82%EF%BC%9F</a>)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/06/%E8%AF%BE%E7%A8%8B/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/" data-id="ckxq1ab2e000eeswb1zti9p8g" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/09/14/%E8%AF%BE%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      软件工程复习
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/09/01/%E5%88%B7%E9%A2%98/PAT%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">PAT刷题笔记</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

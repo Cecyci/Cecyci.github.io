@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    AZFT实习 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-AZFT实习" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  AZFT实习
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/23/AZFT%E5%AE%9E%E4%B9%A0/" class="article-date">
+  <time datetime="2019-08-23T07:49:38.000Z" itemprop="datePublished">2019-08-23</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>今年暑假参加了浙大软院夏令营，即在AZFT实验室实习了一个月，学到的东西还是很多很杂的。回上海一礼拜了，总结一下，以免觉得好像在这宝贵的一段时间里啥也没做。<br>我接到的任务是盲道分割。</p>
+<span id="more"></span>
+<h2 id="阅读应用型的论文"><a href="#阅读应用型的论文" class="headerlink" title="阅读应用型的论文"></a>阅读应用型的论文</h2><h3 id="论文1（针对盲道识别）"><a href="#论文1（针对盲道识别）" class="headerlink" title="论文1（针对盲道识别）"></a>论文1（针对盲道识别）</h3><p> <strong>主要思想</strong></p>
+<ul>
+<li>盲道识别率、实时性；</li>
+<li>提取盲道边界：对初始帧采取精确识别（灰度共生矩阵、模糊C均值聚类分割、Hough变换）</li>
+<li>后续帧采取跟踪识别（图像灰度梯度特征、判断前后帧盲道边界两侧颜色分布一致性</li>
+</ul>
+<p> <strong>盲道精确识别</strong></p>
+<ul>
+<li>预处理：去阴影（区域补偿、深度膨胀）</li>
+<li>盲道精确识别：<ol>
+<li>灰度化、直方图均衡化：较大的灰度动态范围和较高的对比度，细节更加丰富；</li>
+<li>灰度共生矩阵：空间分布关系包含图像纹理信息—&gt;联合特征矩阵</li>
+<li>模糊C均值聚类分割—&gt;盲道区域的分割</li>
+<li>轮廓提取及Hough变换</li>
+</ol>
+</li>
+</ul>
+<h3 id="论文2（针对纹理提取）"><a href="#论文2（针对纹理提取）" class="headerlink" title="论文2（针对纹理提取）"></a>论文2（针对纹理提取）</h3><p> <strong>主要思想</strong></p>
+<ul>
+<li><p>Gabor变换：Gabor核函数作为小波函数的基函数，实现方向和尺度不变的特征提取，具有较高的精度；</p>
+</li>
+<li><p>ICA、PCA与Gabor小波融合：提高识别率；</p>
+</li>
+<li><p>Relief算法：权值搜索的特征子集选择方法，提高识别效率；</p>
+</li>
+<li><p>K-means：DE（差分进化）求解最优聚类中心，优化K-means算法；</p>
+<h2 id="python-opencv基础学习"><a href="#python-opencv基础学习" class="headerlink" title="python-opencv基础学习"></a>python-opencv基础学习</h2><p><img src="/img/opencv.jpg" alt="OpenCV模块"></p>
+</li>
+<li><p>滤波：信号有各种频率的成分，滤掉不想要的成分；</p>
+</li>
+<li><p>图像平滑：区域增强，减小缺陷；</p>
+</li>
+<li><p>图像金字塔：pyrDown()：平滑滤波+降采样；pyrUp():升采样+高斯平滑</p>
+</li>
+<li><p>低通滤波（均值模糊）：blur；高斯模糊GaussianBlur()</p>
+</li>
+<li><p>中值滤波（中值模糊,去除椒盐噪声）：medianblur;</p>
+</li>
+<li><p>双边滤波：bilateralFilter();空间邻近度和像素相似度，空域信息和灰度相似性-&gt;保证边缘附近像素值的保存；</p>
+</li>
+<li><p>均值迁移：pyrMeanShiftFiltering();</p>
+</li>
+<li><p>直方图均衡化：cv.equalizeHist();</p>
+</li>
+<li><p>归一化：normalize();</p>
+</li>
+<li><p>反向投影：calcBackProject()定位模板图像出现在输入图像的位置；</p>
+</li>
+<li><p>模板匹配：methods = [cv.TM_SQDIFF_NORMED, cv.TM_CCORR_NORMED, cv.TM_CCOEFF_NORMED]<br>matchTemplate()得到匹配结果图形矩阵result：尺寸（W-w+1）*(H-h+1)?</p>
+</li>
+<li><p>minMaxLoc()在给定矩阵中找最大和最小值</p>
+</li>
+<li><p>rectangle(target,tl,br,color,thickness)绘制矩形；</p>
+</li>
+</ul>
+<p>全局阈值：threshold<br>局部阈值：adaptiveThreshold</p>
+<h2 id="基础概念学习"><a href="#基础概念学习" class="headerlink" title="基础概念学习"></a>基础概念学习</h2><h3 id="gabor滤波"><a href="#gabor滤波" class="headerlink" title="gabor滤波"></a>gabor滤波</h3><p>gabor提取纹理特征的思路：<br>不同纹理一般具有不同的<strong>频率和带宽</strong>，根据他们设计一组Gabor滤波器对纹理图像进行滤波；<br>gabor滤波器：用于边缘提取的线性滤波器；波长，方向，相位偏移，长宽比，带宽；<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/DOMLX/p/8989836.html">概念学习</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zqx951102/article/details/89716358">例子</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenaiyanmie/article/details/80246108">详细介绍</a></p>
+<h3 id="DE差分进化算法"><a href="#DE差分进化算法" class="headerlink" title="DE差分进化算法"></a>DE差分进化算法</h3><p>演化算法，随机模型，反复迭代；<br>求解连续变量的全局优化问题；<br>交叉-&gt;变异(试验个体)-&gt;选择（与目标个体）</p>
+<h3 id="Relief特征权重算法"><a href="#Relief特征权重算法" class="headerlink" title="Relief特征权重算法"></a>Relief特征权重算法</h3><p>特征和类别的相关性</p>
+<h3 id="灰度共生矩阵"><a href="#灰度共生矩阵" class="headerlink" title="灰度共生矩阵"></a>灰度共生矩阵</h3><p> <strong>Gray-level Co-occurrence Matrix</strong><br>假定图像各像素间的空间分布关系包含图像纹理的纹理分析方法；<br>两个灰阶值在指定的空间分布上出现的频率分布；<br>像素灰度在空间位置上的反复出现形成图像的纹理，GLCM是描述具有某种空间位置关系两个像素灰度的联合分布;<br><a target="_blank" rel="noopener" href="http://www.dididongdong.com/archives/4327">概念学习</a></p>
+<h3 id="方向梯度直方图（HOG）"><a href="#方向梯度直方图（HOG）" class="headerlink" title="方向梯度直方图（HOG）"></a>方向梯度直方图（HOG）</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liulina603/article/details/8291093">概念学习1</a><br><a target="_blank" rel="noopener" href="https://www.learnopencv.com/histogram-of-oriented-gradients/">概念学习2</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ppp8300885/article/details/71078555">代码实现</a></p>
+<h3 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h3><p>简单接触了一下CNN的概念理解</p>
+<ul>
+<li>局部感受野：一个隐藏层的神经元与局部区域输入层的神经元相连（与DNN每个都连有所不同）<br>（参数：窗口大小w、步数b）</li>
+<li>权值共享：权值和偏移值，一个窗口只能学到一种特征；</li>
+<li>池化：简化卷积层的输出；</li>
+</ul>
+<p>输入层学到的特征反映在卷积层，池化层检测特征是否在窗口覆盖范围的区域里<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/liangchunjiang/article/details/79030681">详解</a></p>
+<h3 id="RCNN"><a href="#RCNN" class="headerlink" title="RCNN"></a>RCNN</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011534057/article/details/51218250">论文理解1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/bryant_meng/article/details/78613881#commentBox">论文理解2</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要还是去看报告吧，靠论文和伟大的互联网写出了基于图像处理的盲道识别的基本算法，后面发现局限性太大了，为何学姐一开始不让我学语义分割，我琢磨这更有用，更有意思，更能学到东西，而不是写出几个乱七八糟，并且不能应用的算法？<br>本次夏令营有点运气加成，还让我发现自己在接触不懂的东西还是太浮躁了，答辩怪紧张的，认识的新朋友都很不错，还有大佬处处有，可惜不是我，总体体验一般般。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/23/AZFT%E5%AE%9E%E4%B9%A0/" data-id="ckxpsvc350000dowbbeoa4yyk" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/08/29/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      动态规划
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/21/My-first-Post/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">My first Post</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

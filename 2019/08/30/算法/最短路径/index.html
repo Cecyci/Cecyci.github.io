@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    最短路径 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-算法/最短路径" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  最短路径
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" class="article-date">
+  <time datetime="2019-08-30T06:13:33.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p> <strong>迪杰斯特拉算法</strong>:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mu399/article/details/50903876">详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35644234/article/details/60870719">图示</a><span id="more"></span></li>
+</ul>
+<hr>
+<h3 id="hduoj1142"><a href="#hduoj1142" class="headerlink" title="hduoj1142"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1142">hduoj1142</a></h3><p> <strong>算出最短路径后+DFS；（好题）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int edge[1005][1005];</span><br><span class="line">int maxint=1000001;</span><br><span class="line">int vis[1005];//是否访问过</span><br><span class="line">int dist[1005];//源点到i点的最短路径</span><br><span class="line">int path[1005];</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">void dijstra(int s)</span><br><span class="line">&#123;</span><br><span class="line">    //init</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        vis[i]=0;</span><br><span class="line">        dist[i]=edge[s][i];</span><br><span class="line">    &#125;</span><br><span class="line">    vis[s]=1;</span><br><span class="line"></span><br><span class="line">    //使所有的点都访问过，在vis[]内标记为1</span><br><span class="line">    for(int i=1;i&lt;n;i++)&#123;</span><br><span class="line">        int Min=maxint;</span><br><span class="line">        int tmp=0;</span><br><span class="line">        //找出最小dist[j]</span><br><span class="line">        for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            if(Min&gt;dist[j]&amp;&amp;!vis[j])&#123;</span><br><span class="line">                Min=dist[j];</span><br><span class="line">                tmp=j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vis[tmp]=1;</span><br><span class="line">        for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            if(edge[tmp][j]!=maxint&amp;&amp;!vis[j])&#123;</span><br><span class="line">                //存在边</span><br><span class="line">                //试图更新</span><br><span class="line">                int d=Min+edge[tmp][j];</span><br><span class="line">                if(d&lt;dist[j])&#123;</span><br><span class="line">                    dist[j]=d;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //for(int i=1;i&lt;=n;i++)cout&lt;&lt;dist[i]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int DFS(int x)</span><br><span class="line">&#123;</span><br><span class="line">    //遇到算过的路径</span><br><span class="line">    if(path[x]!=-1)&#123;</span><br><span class="line">        return path[x];</span><br><span class="line">    &#125;</span><br><span class="line">    //遇到结尾2,1条路径</span><br><span class="line">    if(x==2)&#123;return 1;&#125;</span><br><span class="line">    path[x]=0;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        if(edge[x][i]!=maxint&amp;&amp;dist[i]&lt;dist[x])&#123;</span><br><span class="line">            path[x]+=DFS(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return path[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;n)!=EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        if(!n)break;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">        for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">                edge[i][j]=maxint;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int x,y,d;</span><br><span class="line">        for(int i=0;i&lt;m;i++)&#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;,&amp;x,&amp;y,&amp;d);</span><br><span class="line">            edge[x][y]=d;</span><br><span class="line">            edge[y][x]=d;//无向图</span><br><span class="line">        &#125;</span><br><span class="line">        dijstra(2);</span><br><span class="line">        dist[2]=0;//少了这一步的话，</span><br><span class="line">                  //dist[2]为maxint，很大</span><br><span class="line">                  //不能满足dist[i]&lt;dist[x]条件</span><br><span class="line">        memset(path,-1,sizeof(path));</span><br><span class="line">        cout&lt;&lt;DFS(1)&lt;&lt;endl;</span><br><span class="line">        //for(int i=1;i&lt;=n;i++)cout&lt;&lt;path[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj2544"><a href="#hduoj2544" class="headerlink" title="hduoj2544"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2544">hduoj2544</a></h3><p> <strong>基础最短路径图，求出源点到终点的路径长度；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int edge[105][105];</span><br><span class="line">int maxint=999999;</span><br><span class="line">int vis[105];//是否访问过</span><br><span class="line">int dist[105];//源点到i点的最短路径</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">int dijstra()</span><br><span class="line">&#123;</span><br><span class="line">    //init</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        vis[i]=0;</span><br><span class="line">        dist[i]=edge[1][i];</span><br><span class="line">    &#125;</span><br><span class="line">    vis[1]=1;</span><br><span class="line"></span><br><span class="line">    //使所有的点都访问过，在vis[]内标记为1</span><br><span class="line">    for(int i=1;i&lt;n;i++)&#123;</span><br><span class="line">        int Min=maxint;</span><br><span class="line">        int tmp=0;</span><br><span class="line">        //找出最小dist[j]</span><br><span class="line">        for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            if(Min&gt;dist[j]&amp;&amp;!vis[j])&#123;</span><br><span class="line">                Min=dist[j];</span><br><span class="line">                tmp=j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vis[tmp]=1;</span><br><span class="line">        for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            if(edge[tmp][j]!=maxint&amp;&amp;!vis[j])&#123;</span><br><span class="line">                //存在边</span><br><span class="line">                //试图更新</span><br><span class="line">                int d=Min+edge[tmp][j];</span><br><span class="line">                if(d&lt;dist[j])&#123;</span><br><span class="line">                    dist[j]=d;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //for(int i=1;i&lt;=n;i++)cout&lt;&lt;dist[i]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl;</span><br><span class="line">    return dist[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF&amp;&amp;m&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            for(int j=1;j&lt;=n;j++)</span><br><span class="line">                edge[i][j]=maxint;</span><br><span class="line">        &#125;</span><br><span class="line">        int x,y,d;</span><br><span class="line">        for(int i=0;i&lt;m;i++)&#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;,&amp;x,&amp;y,&amp;d);</span><br><span class="line">            edge[x][y]=d;</span><br><span class="line">            edge[y][x]=d;//无向图</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cout&lt;&lt;dijstra()&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/30/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" data-id="ckxq190kk0006eswb3b9g9uad" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/hash/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      hash
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">二分图匹配</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

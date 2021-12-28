@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    html |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-html" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  html
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/24/html/" class="article-date">
+  <time datetime="2020-03-24T12:05:37.000Z" itemprop="datePublished">2020-03-24</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h1 id="HTML基础"><a href="#HTML基础" class="headerlink" title="HTML基础"></a>HTML基础</h1><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;&lt;/head&gt;</span><br><span class="line">&lt;body&gt;&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="HTML元素"><a href="#HTML元素" class="headerlink" title="HTML元素"></a>HTML元素</h2><p>属性：class，id，name…</p>
+<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><p>行内&gt;内部(style)&gt;外部样式优先级(link)</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;图片位置&quot; alt=&quot;无图片时的替代文字&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;th colspan=&quot;2&quot;&gt;Head&lt;/th&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;th&gt;Head1&lt;/th&gt;</span><br><span class="line">    &lt;th&gt;Head2&lt;/th&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;row1,cell1&gt;&lt;/td&gt;</span><br><span class="line">    &lt;td&gt;row1,cell2&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;row2,cell1&gt;&lt;/td&gt;</span><br><span class="line">    &lt;td&gt;row2,cell2&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>有序：<code>&lt;ol type=&#39;A/a/I/i/&#39;&gt;</code><br>无序：<code>&lt;ul style=&#39;list-style-type:disc/circle/square/&#39;&gt;</code><br>自定义:<code>&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;</code></p>
+<h2 id="块级元素与行内元素"><a href="#块级元素与行内元素" class="headerlink" title="块级元素与行内元素"></a>块级元素与行内元素</h2><p><b>块级元素</b></p>
+<ul>
+<li>霸占一行，不能与其他任何元素并列</li>
+<li>接受宽高，不设置则为父级元素的100%</li>
+<li>div,p,h1,table</li>
+</ul>
+<p><b>行内元素</b></p>
+<ul>
+<li>与其他行内元素并列</li>
+<li>不设置宽高，默认宽度为文字的宽度</li>
+<li>在垂直方向的padding和margin会失效</li>
+<li>img,b,a,td,span</li>
+</ul>
+<h2 id="HTML表单和输入"><a href="#HTML表单和输入" class="headerlink" title="HTML表单和输入"></a>HTML表单和输入</h2><h2 id="HTML框架"><a href="#HTML框架" class="headerlink" title="HTML框架"></a>HTML框架</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; frameborder=&quot;0&quot; name=&quot;framename&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;www.baidu.com&quot; target=&quot;&quot;&gt;Baidu&lt;/a&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>在浏览器窗口内显示嵌套窗口；</p>
+<h2 id="HTML脚本"><a href="#HTML脚本" class="headerlink" title="HTML脚本"></a>HTML脚本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;定义客户端脚本；</span><br><span class="line">document.write可以直接在html输出，但是必须在html输出流中，以防覆盖整个文本；</span><br><span class="line">定义函数可触发事件响应，可处理HTML样式；</span><br><span class="line">&lt;noscript&gt;定义不支持脚本浏览器输出的文本；</span><br></pre></td></tr></table></figure>
+<h2 id="HTML实体"><a href="#HTML实体" class="headerlink" title="HTML实体"></a>HTML实体</h2><p>&amp;entity_name 或 &amp;#entity_number<br>&amp;lt 或 &amp;#60<br>&amp;nbsp</p>
+<h2 id="HTML-URL"><a href="#HTML-URL" class="headerlink" title="HTML URL"></a>HTML URL</h2><p>因特网服务类型：//域主机.因特网域名:port/服务器路径/资源名称<br>字符编码后通过因特网发送：ASCll字符集编码，非ASCll字符使用%后跟2位十六进制数；+表示空格；</p>
+<h2 id="XHTML-正确标记，格式良好"><a href="#XHTML-正确标记，格式良好" class="headerlink" title="XHTML 正确标记，格式良好"></a>XHTML 正确标记，格式良好</h2><p><strong>结构：</strong> DOCTYPE强制；html xmlns属性规定命名空间；必须有<code>&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;body&gt;</code>;<br><strong>元素语法：</strong> 元素名小写，元素闭合，嵌套，一定有个根元素；<br><strong>属性语法：</strong> 属性名小写，属性值引号，不允许属性简写；</p>
+<h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><h2 id="Canvas画布"><a href="#Canvas画布" class="headerlink" title="Canvas画布"></a>Canvas画布</h2><p><code>&lt;canvas&gt;</code><br>使用JS绘制图像：<br>c=document.getElementById(“myCanvas”);<br>创建context对象：ctx=c.getContext(“2d”);<br>绘制红色矩形：ctx.fillStyle=”#FF0000”;<br>             ctx.fillRect(0,0,150,75);<br>画线： ctx.moveTo(0,0);<br>      ctx.lineTo(200,100);<br>      ctx.stroke();<br>画圆：ctx.beginPath();<br>      ctx.arc(95,50,40,0,2*Math.PI);<br>      ctx.stroke();<br>文本：ctx.font=”30px Arial”;<br>      ctx.fillText(“Hello World”,10,50);<br>      /ctx.strokeText(“Hello World”,10,50);//空心<br>渐变： // 创建渐变<br>        var grd=ctx.createLinearGradient(0,0,200,0);/<br>        var grd=ctx.createRadialGradient(75,50,5,90,60,100);//圆渐变<br>        grd.addColorStop(0,”red”);<br>        grd.addColorStop(1,”white”);</p>
+<pre><code>    // 填充渐变
+    ctx.fillStyle=grd;
+    ctx.fillRect(10,10,150,80);
+</code></pre>
+<p>图像：drawImage(image,x,y)；</p>
+<h2 id="拖放"><a href="#拖放" class="headerlink" title="拖放"></a>拖放</h2><p>拖放物：draggable=”true”,ondragstart(setData存放拖放物id)；<br>拖放目的地：ondragover(允许防止preventDefault)ondrop(getData获取拖放物id，加入到当前DOM中)</p>
+<h2 id="地理位置"><a href="#地理位置" class="headerlink" title="地理位置"></a>地理位置</h2><p>navigator.geolocation.getCurrentPosition(showPosition,showError);</p>
+<h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;</span><br><span class="line">  &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">  &lt;source src=&quot;movie.ogg&quot; type=&quot;video/ogg&quot;&gt;</span><br><span class="line">您的浏览器不支持Video标签。</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+<p>方法：paused(),play()；<br>属性：width</p>
+<h2 id="新的Input类型"><a href="#新的Input类型" class="headerlink" title="新的Input类型"></a>新的Input类型</h2><p>color<br>date<br>datetime<br>datetime-local<br>email<br>month<br>number<br>range<br>search<br>tel<br>time<br>url<br>week</p>
+<h2 id="新的表单元素"><a href="#新的表单元素" class="headerlink" title="新的表单元素"></a>新的表单元素</h2><p>datalist:与input元素配合，定义选项列表；<br>keygen：用于表单密钥对生成器字段；<br>output：特殊输出计算name相同的值；</p>
+<h2 id="新的表单属性"><a href="#新的表单属性" class="headerlink" title="新的表单属性"></a>新的表单属性</h2><p>form 新属性：<br>autocomplete<br>novalidate<br>input 新属性：<br>autocomplete<br>autofocus<br>form<br>formaction<br>formenctype<br>formmethod<br>formnovalidate<br>formtarget<br>height 与 width<br>list<br>min 与 max<br>multiple<br>pattern (regexp)<br>placeholder<br>required<br>step</p>
+<h2 id="添加语义元素"><a href="#添加语义元素" class="headerlink" title="添加语义元素"></a>添加语义元素</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">&lt;section&gt;</span><br><span class="line">&lt;article&gt;</span><br><span class="line">&lt;aside&gt;</span><br><span class="line">&lt;figcaption&gt;</span><br><span class="line">&lt;figure&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h2><p><strong>localStorage</strong> - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。<br><strong>sessionStorage</strong> - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。<br>setItem(key,value);<br>getItem(key);<br>removeItem(key);<br>clear();<br>key(index);<br>length;</p>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>TCP协议；<br>两次握手：客户端发送包含建立websocket的HTTP请求头，服务端解析请求头，往回发送应答信息，则建立websocket连接；<br>双方可通过该连接通道自由传递信息；<br>直到一方主动关闭；<br>websocket属性：readyState,bufferedAmount;<br>webSocket事件：onopen,onmessage,onerror,onclose;<br>webSocket方法：send(),close();</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/24/html/" data-id="ckxpsvc3e0005dowb2u552wjb" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2020/04/14/vue/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      vue
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/11/23/css/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">css</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

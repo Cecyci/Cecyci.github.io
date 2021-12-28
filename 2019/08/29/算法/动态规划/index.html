@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    动态规划 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-算法/动态规划" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  动态规划
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/29/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-date">
+  <time datetime="2019-08-29T05:46:45.000Z" itemprop="datePublished">2019-08-29</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>有关动态规划的算法和练习题整体的归纳与总结</p>
+<span id="more"></span>
+<h2 id="算法理解"><a href="#算法理解" class="headerlink" title="算法理解"></a>算法理解</h2><ol>
+<li>原问题-&gt;子问题</li>
+<li>状态</li>
+<li>初始状态</li>
+<li>状态转移方程<h2 id="eg"><a href="#eg" class="headerlink" title="eg."></a>eg.</h2><h3 id="hduoj1003-Max-Sum"><a href="#hduoj1003-Max-Sum" class="headerlink" title="hduoj1003 Max Sum"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1003">hduoj1003 Max Sum</a></h3></li>
+</ol>
+<p> <strong>求一串数字的和最大子序列</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">struct dp&#123;</span><br><span class="line">    int x,val;</span><br><span class="line">&#125; dp[100000];</span><br><span class="line">//dp[i]保存以i位置结尾的子串的最优解</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int time=0;</span><br><span class="line">    int x=1;</span><br><span class="line">    cin&gt;&gt;time;</span><br><span class="line">    while(time--)&#123;</span><br><span class="line">       int num=0;</span><br><span class="line">       int a[100000];</span><br><span class="line">       cin&gt;&gt;num;</span><br><span class="line">       for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">            cin&gt;&gt;a[i];</span><br><span class="line">       &#125;</span><br><span class="line">       dp[0].val=a[0];</span><br><span class="line">       dp[0].x=0;</span><br><span class="line">       for(int i=1;i&lt;num;i++)&#123;</span><br><span class="line">            if(dp[i-1].val+a[i]&lt;a[i])&#123;</span><br><span class="line">                dp[i].x=i;</span><br><span class="line">                dp[i].val=a[i];</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                dp[i].x=dp[i-1].x;</span><br><span class="line">                dp[i].val=dp[i-1].val+a[i];</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       int max=-1001;</span><br><span class="line">       int start=0,end=0;</span><br><span class="line">       for(int i=0;i&lt;num;i++)&#123;</span><br><span class="line">        if(dp[i].val&gt;max)&#123;</span><br><span class="line">            max=dp[i].val;</span><br><span class="line">            start=dp[i].x;</span><br><span class="line">            end=i;</span><br><span class="line">        &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       cout&lt;&lt;&quot;Case &quot;&lt;&lt;x++&lt;&lt;&quot;:&quot;&lt;&lt;endl;</span><br><span class="line">		cout&lt;&lt;max&lt;&lt;&#x27; &#x27;&lt;&lt;start+1&lt;&lt;&#x27; &#x27;&lt;&lt;end+1&lt;&lt;endl;</span><br><span class="line">		if(time)cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj2084"><a href="#hduoj2084" class="headerlink" title="hduoj2084"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2084">hduoj2084</a></h3><p> <strong>经典数塔问题</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int dp[1100];</span><br><span class="line">int a[101][101];</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int N;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;N);</span><br><span class="line">    while(N--)&#123;</span><br><span class="line">        int layer;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;layer);</span><br><span class="line">        //输入金字塔</span><br><span class="line">        for(int i=1;i&lt;=layer;i++)&#123;</span><br><span class="line">            for(int j=1;j&lt;=i;j++)</span><br><span class="line">                scanf(&quot;%d&quot;,&amp;a[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=layer-1;i&gt;=1;i--)&#123;</span><br><span class="line">            for(int j=1;j&lt;=i;j++)&#123;</span><br><span class="line">                a[i][j]=max(a[i+1][j],a[i+1][j+1])+a[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%dn&quot;,a[1][1]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1176"><a href="#hduoj1176" class="headerlink" title="hduoj1176"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1176">hduoj1176</a></h3><p> <strong>gameboy免费馅饼,求获得的最多馅饼量；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int dp[110000][20];</span><br><span class="line">//dp表示i时间段在各个位置上的最佳馅饼数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    int x,T;</span><br><span class="line">    int maxT=0;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;n)&amp;&amp;n!=0)&#123;</span><br><span class="line">        memset(dp,0,sizeof(dp));</span><br><span class="line">        maxT=0;</span><br><span class="line">        while(n--)&#123;</span><br><span class="line">            scanf(&quot;%d%d&quot;,&amp;x,&amp;T);</span><br><span class="line">            dp[T][x]++;</span><br><span class="line">            if(T&gt;maxT)maxT=T;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=maxT-1;i&gt;=0;i--)&#123;</span><br><span class="line">            for(int j=0;j&lt;=10;j++)&#123;</span><br><span class="line">                if(j==0)&#123;</span><br><span class="line">                    dp[i][j]=max(dp[i+1][j],dp[i+1][j+1])+dp[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">                else if(j==10)&#123;</span><br><span class="line">                    dp[i][j]=max(dp[i+1][j],dp[i+1][j-1])+dp[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">                else &#123;</span><br><span class="line">                    dp[i][j]=max(max(dp[i+1][j-1],dp[i+1][j]),dp[i+1][j+1])+dp[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%dn&quot;,dp[0][5]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1087"><a href="#hduoj1087" class="headerlink" title="hduoj1087"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1087">hduoj1087</a></h3><p> <strong>Super Jump!跳到比当前大的位置，求从start到end经过的最大和；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int dp[1100];</span><br><span class="line">int a[1100];</span><br><span class="line">//dp作为以i为最后一步时，得到的最佳分数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int N;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;N)!=EOF&amp;&amp;N!=0)&#123;</span><br><span class="line">        memset(dp,0,sizeof(dp));</span><br><span class="line">        int i=0;</span><br><span class="line">        int temp=N;</span><br><span class="line">        while(temp--)&#123;</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">            dp[i]=a[i];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int j=0;j&lt;N;j++)&#123;</span><br><span class="line">            for(int k=0;k&lt;j;k++)&#123;</span><br><span class="line">                if(a[j]&gt;a[k]&amp;&amp;dp[k]+a[j]&gt;dp[j])&#123;</span><br><span class="line">                    dp[j]=dp[k]+a[j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       // for(int kk=0;kk&lt;=N;kk++)&#123;printf(&quot;%d &quot;,dp[kk]);&#125;</span><br><span class="line">        printf(&quot;%dn&quot;,*max_element(dp, dp + N));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="hduoj1159"><a href="#hduoj1159" class="headerlink" title="hduoj1159"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1159">hduoj1159</a></h3><p> <strong>Common Subsequence经典最长公共子序列问题，构建矩阵；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int dp[1001][1001];</span><br><span class="line">//dp可能因为太大了，所以需要开在全局</span><br><span class="line">//dp矩阵保存当前2个字符串的最长相同子序列长度</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    string a,b;</span><br><span class="line">    while(cin&gt;&gt;a&gt;&gt;b)&#123;</span><br><span class="line">        int la=a.length();</span><br><span class="line">        int lb=b.length();</span><br><span class="line">        //cout&lt;&lt;la&lt;&lt;&quot; &quot;&lt;&lt;lb&lt;&lt;endl;</span><br><span class="line">        memset(dp,0,sizeof(dp));</span><br><span class="line">        int m=0;</span><br><span class="line">        for(int i=1;i&lt;=la;i++)&#123;</span><br><span class="line">            for(int j=1;j&lt;=lb;j++)&#123;</span><br><span class="line">                if(a[i-1]==b[j-1])</span><br><span class="line">                    dp[i][j]=dp[i-1][j-1]+1;</span><br><span class="line">                else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);</span><br><span class="line">                if(m&lt;dp[i][j])m=dp[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%dn&quot;,m);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/29/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" data-id="ckxq18sbw0000eswb2ue51utp" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      搜索
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/23/AZFT%E5%AE%9E%E4%B9%A0/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">AZFT实习</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

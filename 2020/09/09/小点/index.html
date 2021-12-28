@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    小点 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-小点" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  小点
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/09/09/%E5%B0%8F%E7%82%B9/" class="article-date">
+  <time datetime="2020-09-09T03:32:36.000Z" itemprop="datePublished">2020-09-09</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>用法：不重复、自动排序的集合；<br>my_set.insert(sth); // 插入<br>my_set.find(sth) == my_set.end(); // 判断在集合中不存在S</p>
+<h1 id="拓扑建图"><a href="#拓扑建图" class="headerlink" title="拓扑建图"></a>拓扑建图</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> struct GraphNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    vector&lt;GraphNode*&gt; courses;</span><br><span class="line">    GraphNode(int x) : val(x) &#123;&#125; // 构造函数</span><br><span class="line">&#125;;</span><br><span class="line">// vector&lt;GraphNode*&gt; graph;</span><br></pre></td></tr></table></figure>
+<h1 id="vector作栈"><a href="#vector作栈" class="headerlink" title="vector作栈"></a>vector作栈</h1><p>vec.push_back(x);<br>vec[vec.size() - 1]; // vec.back() (首部元素引用可用 vec.front())<br>vec.pop_back();<br>*max_element(vec.begin(), vec.end()); // 求数组中的最大值</p>
+<h1 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h1><p>priority_queue<int> q; // 大顶堆 从大到小降序<br>priority_queue&lt;int, vector<int>, greater<int> &gt; q; // 小顶堆 从小到大升序<br>priority_queue&lt;pair&lt;int, int&gt; &gt; q; // pair中先比较第1个降序 再比较第2个降序<br>如果要遍历的话，只能够pop push<br>访问队首元素 q.top()</p>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>无序 没有重复的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">unordered_set&lt;int&gt; num_set;</span><br><span class="line">for (const int&amp; num : nums) &#123; // 去重</span><br><span class="line">    num_set.insert(num);</span><br><span class="line">&#125;</span><br><span class="line">num_set.count(num - 1) // 判断集合中是否存在</span><br></pre></td></tr></table></figure>
+
+<h1 id="9-23"><a href="#9-23" class="headerlink" title="9.23"></a>9.23</h1><p>75：荷兰国旗问题</p>
+<h1 id="9-24"><a href="#9-24" class="headerlink" title="9.24"></a>9.24</h1><p>146：优先队列、双向链表<br>169：投票算法</p>
+<h1 id="9-25"><a href="#9-25" class="headerlink" title="9.25"></a>9.25</h1><p>152：动态规划<br>215：随机快排、堆排序<br>234：反转链表</p>
+<h1 id="9-27"><a href="#9-27" class="headerlink" title="9.27"></a>9.27</h1><p>动态规划简单题</p>
+<h1 id="9-28"><a href="#9-28" class="headerlink" title="9.28"></a>9.28</h1><p>贪心简单题（模拟）  </p>
+<h1 id="10-2"><a href="#10-2" class="headerlink" title="10.2"></a>10.2</h1><p>秋叶收藏集 叶子 dp<br>739 单调栈</p>
+<h1 id="10-3"><a href="#10-3" class="headerlink" title="10.3"></a>10.3</h1><p>647 马拉车算法[<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/392172762e55]">https://www.jianshu.com/p/392172762e55]</a></p>
+<h1 id="10-19"><a href="#10-19" class="headerlink" title="10.19"></a>10.19</h1><p>239 滑动窗口最大值<br>单调栈 动态规划</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 双向队列</span><br><span class="line">ArrayDeque&lt;Integer&gt;deq;</span><br><span class="line">deq.isEmpty();</span><br><span class="line">deq.getLast();</span><br><span class="line">deq.getFirst();</span><br><span class="line">deq.addLast();</span><br><span class="line">deq.removeLast();</span><br></pre></td></tr></table></figure>
+<h1 id="10-20"><a href="#10-20" class="headerlink" title="10.20"></a>10.20</h1><p>84 柱状图中的最大矩形</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 栈</span><br><span class="line">Stack&lt;Integer&gt; stack = new Stack();</span><br><span class="line">stack.empty();</span><br><span class="line">stack.peek();</span><br><span class="line">stack.push(new Integer(i));</span><br></pre></td></tr></table></figure>
+<h1 id="10-26"><a href="#10-26" class="headerlink" title="10.26"></a>10.26</h1><p>回溯 有点不懂</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line">StringBuilder s;</span><br><span class="line">s.add(); // 可改变大小</span><br><span class="line">hashSet 哈希表</span><br><span class="line">append()</span><br></pre></td></tr></table></figure>
+<h1 id="11-1"><a href="#11-1" class="headerlink" title="11.1"></a>11.1</h1><p>二叉树序列化与反序列化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java 队列</span><br><span class="line">Queue&lt;String&gt; q = new LinkedList&lt;String&gt;(); </span><br><span class="line">q.offer(&quot;a&quot;); // add</span><br><span class="line">q.poll(); // remove抛出异常 poll返回null</span><br><span class="line">q.peek(); // 第一个元素q.element()</span><br><span class="line">for(String s:q) // 遍历</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/09/%E5%B0%8F%E7%82%B9/" data-id="ckxpsvc3n000ndowbgy1da92c" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2020/12/19/java%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      JAVA基础
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2020/08/01/2020%E6%9A%91%E5%81%87%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">2020暑假刷题笔记</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

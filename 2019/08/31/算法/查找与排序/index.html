@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    查找与排序 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-算法/查找与排序" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  查找与排序
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/31/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time datetime="2019-08-31T06:07:11.000Z" itemprop="datePublished">2019-08-31</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h1 id="查找算法"><a href="#查找算法" class="headerlink" title="查找算法"></a>查找算法</h1><h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><ul>
+<li>顺序查找又称线性查找。它的过程为：<strong>从查找表的最后一个元素开始逐个与给定关键字比较</strong>，若某个记录的关键字和给定值比较相等，则查找成功，否则，若直至第一个记录，其关键字和给定值比较都不等，则表明表中没有所查记录查找不成功，它的缺点是效率低下。</li>
+</ul>
+<span id="more"></span>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li>简介<br>基本思想是将n个元素分成大致相等的两部分，取a[n/2]与x做比较，如果x=a[n/2],则找到x，算法中止；如果x &lt; a[n/2]，则只要在数组a的左半部分继续搜索x，如果x &gt; a[n/2]，则只要在数组a的右半部搜索x。<br>二分查找的时间复杂度为O(logn)</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int BinSearch(int low,int high,int target)</span><br><span class="line">&#123;</span><br><span class="line">    while(low&lt;=high)&#123;</span><br><span class="line">        int mid=(low+high)/2;</span><br><span class="line">        if(target==arr[mid])return mid;</span><br><span class="line">        else if(arr[mid]&gt;target)&#123;</span><br><span class="line">            high=mid-1;</span><br><span class="line">        &#125;</span><br><span class="line">        else low=mid+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2></li>
+<li>简介<br>基本思想是：设排序序列的记录个数为n，进行n-1次遍历，每次遍历从开始位置依次往后比较前后相邻元素，这样较大的元素往后移，n-1次遍历结束后，序列有序。</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//冒泡排序：从小到大</span><br><span class="line">void BubbleSort(int arr[],int len)</span><br><span class="line">&#123;</span><br><span class="line">    int flag=true;</span><br><span class="line">    for(int i=0;i&lt;len-1;i++)&#123;//len-1次冒泡</span><br><span class="line">        if(!flag)break;</span><br><span class="line">        flag=false;</span><br><span class="line">        for(int j=0;j&lt;len-i-1;j++)&#123;//去除最后一个已到位的</span><br><span class="line">            if(arr[j]&gt;arr[j+1])&#123;</span><br><span class="line">                swap(arr[j+1],arr[j]);</span><br><span class="line">                flag=true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>分析<br>最佳情况下冒泡排序只需一次遍历就能确定数组已经排好序，不需要进行下一次遍历，所以最佳情况下，时间复杂度为**O(n)<strong>。<br>最坏情况下冒泡排序需要n-1次遍历，第一次遍历需要比较n-1次，第二次遍历需要n-2次，…，最后一次需要比较1次，最差情况下时间复杂度为</strong>O(n^2)**。<h2 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h2></li>
+<li>简介<br>设排序序列的记录个数为n，进行n-1次选择，每次在n-i+1(i = 1,2,…,n-1)个记录中选择关键字最小的记录作为有效序列中的第i个记录。</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//选择排序，从小到大</span><br><span class="line">void SelectSort(int arr[],int len)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;len-1;i++)&#123;</span><br><span class="line">        int mini=i;</span><br><span class="line">        for(int j=i+1;j&lt;len;j++)&#123;</span><br><span class="line">            if(arr[mini]&gt;arr[j])&#123;</span><br><span class="line">                mini=j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr[i],arr[mini]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>分析<br>进行比较操作的时间复杂度为 O(n^2) ，进行移动操作的时间复杂度为 O(n) 。总的时间复杂度为<strong>O(n^2)</strong><h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2></li>
+<li>简介<br>思想：是将一个记录插入到已排好序的有序表中，从而得到一个新的、记录数增1的有序表。</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//直接插入排序，从小到大</span><br><span class="line">void DInsertSort(int arr[],int len)</span><br><span class="line">&#123;</span><br><span class="line">    int now=0;</span><br><span class="line">    for(int i=1;i&lt;len;i++)&#123;</span><br><span class="line">        now=arr[i];</span><br><span class="line">        int j=i-1;</span><br><span class="line">        for(;j&gt;=0;j--)&#123;</span><br><span class="line">            if(arr[j]&lt;now)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j+1]=arr[j];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j+1]=now;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>分析<br>最好情况下，当待排序序列中记录已经有序时，则需要n-1次比较，不需要移动，时间复杂度为<strong>O(n)</strong> 。最差情况下，当待排序序列中所有记录正好逆序时，则比较次数和移动次数都达到最大值，时间复杂度为<strong>O(n^2)</strong> 。平均情况下，时间复杂度为**O(n^2)**。<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2></li>
+<li>简介<br>归并排序是<strong>分治法</strong>的一个典型应用，它的主要思想是：将待排序序列分为两部分，对每部分递归地应用归并排序，在两部分都排好序后进行合并。</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//归并排序：从小到大</span><br><span class="line">//#define Max 1000</span><br><span class="line">int Merge(int A[],int p,int q,int r)</span><br><span class="line">&#123;</span><br><span class="line">    int n1=q-p+1;</span><br><span class="line">    int n2=r-q;</span><br><span class="line">    int i=0,j=0;</span><br><span class="line">    //用2个数组分别存放目标A[]数组</span><br><span class="line">    //p~q与q+1~r的数</span><br><span class="line">    int L[n1+1],R[n1+1];</span><br><span class="line">    for(i=0;i&lt;n1;i++)&#123;</span><br><span class="line">        L[i]=A[p+i];</span><br><span class="line">    &#125;</span><br><span class="line">    L[i]=Max;</span><br><span class="line">    for(j=0;j&lt;n2;j++)&#123;</span><br><span class="line">        R[j]=A[q+j+1];</span><br><span class="line">    &#125;</span><br><span class="line">    R[j]=Max;</span><br><span class="line">    i=0;j=0;</span><br><span class="line">    //合并L[]与R[]数组</span><br><span class="line">    for(int k=p;k&lt;=r;k++)&#123;</span><br><span class="line">        if(L[i]&lt;=R[j])&#123;</span><br><span class="line">            A[k]=L[i];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            A[k]=R[j];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int MergeSort(int A[],int p,int r)</span><br><span class="line">&#123;</span><br><span class="line">    int q=0;</span><br><span class="line">    if(p&lt;r)&#123;</span><br><span class="line">        q=(p+r)/2;</span><br><span class="line">        MergeSort(A,p,q);</span><br><span class="line">        MergeSort(A,q+1,r);</span><br><span class="line">        Merge(A,p,q,r);</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line">//MergeSort(array,0,len-1);</span><br></pre></td></tr></table></figure></li>
+<li>分析<br>时间复杂度为O(nlogn)<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2></li>
+<li>简介<br>主要思想是：在待排序的序列中选择一个称为主元的元素，将数组分为两部分，使得第一部分中的所有元素都小于或等于主元，而第二部分中的所有元素都大于主元，然后对两部分递归地应用快速排序算法。</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//快速排序：从小到大</span><br><span class="line">//实现对子数组A[p,r]的原址重拍</span><br><span class="line">int PARTITION(int A[],int p,int r)</span><br><span class="line">&#123;</span><br><span class="line">    int x=A[r];</span><br><span class="line">    //i作为比x小的位置标记</span><br><span class="line">    int i=p-1;</span><br><span class="line">    int j;</span><br><span class="line">    for(j=p;j&lt;r;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(A[j]&lt;=x)&#123;</span><br><span class="line">        //使i+1到j之前严格大于A[r]</span><br><span class="line">            i=i+1;</span><br><span class="line">            swap(&amp;A[i],&amp;A[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i=i+1;</span><br><span class="line">    swap(&amp;A[i],&amp;A[r]);</span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void QUICKSORT(int A[],int p,int r)</span><br><span class="line">&#123;</span><br><span class="line">    if(p&lt;r)&#123;</span><br><span class="line">        int x=PARTITION(A,p,r);</span><br><span class="line">        QUICKSORT(A,p,x-1);</span><br><span class="line">        QUICKSORT(A,x+1,r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//QUICKSORT(array,0,len-1);</span><br></pre></td></tr></table></figure></li>
+<li>分析<br>最差情况下算法需要(n-1)+(n-2)+…+1= <strong>O(n^2)</strong> 时间;<br>最佳情况下，每次主元将数组划分为规模大致相等的两部分，时间复杂度为**O(nlogn)**。<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2></li>
+<li>简介<br>堆性质(小根堆)：(1) ki &lt;= k(2i）且 ki &lt;= k(2i+1) (1 ≤ i≤ n/2），即完全二叉树中所有的非终端节点的值均不大于（或不小于）其左右孩子节点的值。<br>主要思想是：给定一个待排序序列，首先经过<strong>一次调整</strong>，将序列构建成一个大根堆，此时第一个元素是最大的元素，将其和序列的最后一个元素交换，然后对<strong>前n-1个</strong>元素调整为大根堆，再将其第一个元素和末尾元素交换，这样最后即可得到有序序列。</li>
+<li>实现<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">//堆排序：小到大</span><br><span class="line">void MAX_HEAPIF(int A[],int i)</span><br><span class="line">&#123;</span><br><span class="line">    int x=2*(i+1);</span><br><span class="line">    int l=x-1;</span><br><span class="line">    int r=x;</span><br><span class="line">    int largest=i;</span><br><span class="line">    if(l&lt;Heap_Size&amp;&amp;A[i]&lt;A[l])&#123;</span><br><span class="line">        largest=l;</span><br><span class="line">    &#125;</span><br><span class="line">    if(r&lt;Heap_Size&amp;&amp;A[largest]&lt;A[r])&#123;</span><br><span class="line">        largest=r;</span><br><span class="line">    &#125;</span><br><span class="line">    if(largest!=i)&#123;//根节点比他的孩子结点小，需要交换</span><br><span class="line">        int f=A[i];</span><br><span class="line">        A[i]=A[largest];</span><br><span class="line">        A[largest]=f;</span><br><span class="line"></span><br><span class="line">    //为保持以孩子结点为根节点的堆为最大堆</span><br><span class="line">    MAX_HEAPIF(A,largest);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//将最原始的数组变为最大堆</span><br><span class="line">//需要从最底下的非叶子结点往上建</span><br><span class="line">void BUILD_MAX_HEAP(int A[],int n)</span><br><span class="line">&#123;</span><br><span class="line">    int node=n/2;</span><br><span class="line">    for(int i=node-1;i&gt;=0;i--)&#123;</span><br><span class="line">        MAX_HEAPIF(A,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//堆排序算法</span><br><span class="line">void HEAP_SORT(int A[],int n)</span><br><span class="line">&#123;</span><br><span class="line">    BUILD_MAX_HEAP(A,n);</span><br><span class="line">    //建一个最大堆之后，每次将根节点与Heap_size最后一个结点置换，再继续建最大堆</span><br><span class="line">    //直到Heap_size为1</span><br><span class="line">    while(Heap_Size&gt;1)&#123;</span><br><span class="line">        int f=A[Heap_Size-1];</span><br><span class="line">        A[Heap_Size-1]=A[0];</span><br><span class="line">        A[0]=f;</span><br><span class="line"></span><br><span class="line">        Heap_Size--;</span><br><span class="line"></span><br><span class="line">        MAX_HEAPIF(A,0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//Heap_Size=len;</span><br><span class="line">//HEAP_SORT(array,len);</span><br></pre></td></tr></table></figure></li>
+<li>分析<br>由于建初始堆所需的比较次数较多，所以堆排序<strong>不适宜于记录数较少的文件</strong>。堆排序时间复杂度也为**O(nlogn)**，空间复杂度为O(1)。它是不稳定的排序方法。与快排和归并排序相比，堆排序在最差情况下的时间复杂度优于快排，空间效率高于归并排序。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tianlihua306/article/details/44621827">二叉树的性质</a><br><img src="/img/sort.webp" alt="各种常用排序算法"><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/42f81846c0fb">常见数据结构与算法整理</a></li>
+</ul>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>非比较排序；[0,MAX]格子的桶；</p>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>桶排序的延伸，预处理成数位相同，从个位开始到最高位，依次桶排序</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/31/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE%E4%B8%8E%E6%8E%92%E5%BA%8F/" data-id="ckxq19kkx000aeswbcq6n6u7k" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/09/01/%E5%88%B7%E9%A2%98/PAT%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      PAT刷题笔记
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/hash/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">hash</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

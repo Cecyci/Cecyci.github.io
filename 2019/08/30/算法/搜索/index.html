@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <meta name="keywords" content="前端 Python 机器学习">
+  
+  
+  <meta name="description" content="2021.12.28建的博客 看看我能坚持多久">
+  
+  <title>
+    搜索 |
+    
+    Cecyci
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-算法/搜索" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  搜索
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/" class="article-date">
+  <time datetime="2019-08-30T05:48:51.000Z" itemprop="datePublished">2019-08-30</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>有关DFS的算法和练习题整体的归纳与总结</p>
+<span id="more"></span>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="算法理解"><a href="#算法理解" class="headerlink" title="算法理解"></a>算法理解</h2><p>递归思想：终止条件，循环，有效条件，走过标记；</p>
+<h2 id="eg"><a href="#eg" class="headerlink" title="eg."></a>eg.</h2><h3 id="hduoj1010"><a href="#hduoj1010" class="headerlink" title="hduoj1010"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1010">hduoj1010</a></h3><p> <strong>典型迷宫，从初始点出发，四个方向，分别DFS，找到最小路径值；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">char maze[10][10];</span><br><span class="line">int flag[10][10];//判断是否走过标记</span><br><span class="line">int dir[4][2]=&#123;0,1,1,0,0,-1,-1,0&#125;;//四个方向</span><br><span class="line">int dx,dy,sx,sy;//门和开始的位置</span><br><span class="line">int N,M,T;</span><br><span class="line">bool flaga=false;</span><br><span class="line"></span><br><span class="line">void dfs(int x,int y,int step)</span><br><span class="line">&#123;</span><br><span class="line">    if(x==dx&amp;&amp;y==dy)&#123;</span><br><span class="line">        if(step==T)flaga=true;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if(step&gt;=T)return;</span><br><span class="line">    if(maze[x][y]!=&#x27;X&#x27;)&#123;</span><br><span class="line">    for(int i=0;i&lt;4;i++)&#123;</span><br><span class="line">        int nowx=dir[i][0]+x;</span><br><span class="line">        int nowy=dir[i][1]+y;</span><br><span class="line">        if(nowx&lt;0||nowy&lt;0||nowx&gt;=N||nowy&gt;=M)continue;//跳过越界</span><br><span class="line">        if(flag[nowx][nowy]==0&amp;&amp;maze[nowx][nowy]!=&#x27;X&#x27;)&#123;</span><br><span class="line">            flag[nowx][nowy]=1;</span><br><span class="line">            dfs(nowx,nowy,step+1);</span><br><span class="line">            flag[nowx][nowy]=0;</span><br><span class="line">            if(flaga)return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d %d %d&quot;,&amp;N,&amp;M,&amp;T)&amp;&amp;N!=0&amp;&amp;M!=0&amp;&amp;T!=0)&#123;</span><br><span class="line">        memset(flag,0,sizeof(flag));</span><br><span class="line">        for(int i=0;i&lt;N;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;M;j++)&#123;</span><br><span class="line">                cin&gt;&gt;maze[i][j];</span><br><span class="line">                if(maze[i][j]==&#x27;S&#x27;)&#123;</span><br><span class="line">                    sx=i;</span><br><span class="line">                    sy=j;</span><br><span class="line">                &#125;</span><br><span class="line">                if(maze[i][j]==&#x27;D&#x27;)&#123;</span><br><span class="line">                    dx=i;</span><br><span class="line">                    dy=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        /*for(int i=0;i&lt;N;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;M;j++)&#123;</span><br><span class="line">                cout&lt;&lt;maze[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout&lt;&lt;endl;</span><br><span class="line">        &#125;*/</span><br><span class="line">        // 不可大于最短路径||奇偶剪枝：若绕路必定比最短路径增长偶数time</span><br><span class="line">        if(abs(sx-dx)+abs(sy-dy)&gt;T||(sx+sy+dx+dy+T)%2==1)cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            flaga=false;</span><br><span class="line">            flag[sx][sy]=1;</span><br><span class="line">        dfs(sx,sy,0);</span><br><span class="line">        //printf(&quot;%d\n&quot;,m);</span><br><span class="line">        if(flaga)cout&lt;&lt;&quot;YES&quot;&lt;&lt;endl;</span><br><span class="line">        else cout&lt;&lt;&quot;NO&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">3 4 5</span><br><span class="line">S.X.</span><br><span class="line">..X.</span><br><span class="line">...D</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1016"><a href="#hduoj1016" class="headerlink" title="hduoj1016"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1016">hduoj1016</a></h3><p> <strong>质数圈</strong><br>1-n内的数字放置在圈内，使相邻2个数字和为质数；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int in[25];</span><br><span class="line">int flag[25];</span><br><span class="line">bool prime[45];</span><br><span class="line">int res[25];</span><br><span class="line">int n;</span><br><span class="line"></span><br><span class="line">//预处理判断40内的质数</span><br><span class="line">void Prime()</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=3;i&lt;=40;i++)&#123;</span><br><span class="line">        bool flag=false;</span><br><span class="line">        for(int j=2;j&lt;=sqrt(i);j++)&#123;</span><br><span class="line">            if(i%j==0)&#123;</span><br><span class="line">                flag=true;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(flag)&#123;</span><br><span class="line">            prime[i]=false;</span><br><span class="line">        &#125;</span><br><span class="line">        else prime[i]=true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出</span><br><span class="line">void Output()</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        cout&lt;&lt;res[i];</span><br><span class="line">        if(i!=n-1)cout&lt;&lt;&quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">int count=0;</span><br><span class="line">void dfs(int x,int step)</span><br><span class="line">&#123;</span><br><span class="line">    if(step==n)&#123;</span><br><span class="line">        //判断与头相加是否为素数</span><br><span class="line">        if(prime[1+res[step-1]])&#123;</span><br><span class="line">            Output();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int a=in[x];</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        int b=in[i];//cout&lt;&lt;a&lt;&lt;&quot; &quot;&lt;&lt;b&lt;&lt;endl;</span><br><span class="line">        if(flag[i]==0&amp;&amp;prime[a+b])&#123;//还未走过的位置,并且满足条件</span><br><span class="line">            //继续走下去</span><br><span class="line">            flag[i]=1;</span><br><span class="line">            res[step]=in[i];</span><br><span class="line">            dfs(i,step+1);</span><br><span class="line">            flag[i]=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int Case=0;</span><br><span class="line">    Prime();</span><br><span class="line">    prime[2]=1;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;n)!=EOF&amp;&amp;n!=0)&#123;</span><br><span class="line">        memset(in,0,sizeof(in));</span><br><span class="line">        memset(flag,0,sizeof(flag));</span><br><span class="line">        Case++;</span><br><span class="line">        for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">            in[i]=i+1;</span><br><span class="line">        &#125;</span><br><span class="line">        flag[0]=1;</span><br><span class="line">        res[0]=in[0];</span><br><span class="line"></span><br><span class="line">        cout&lt;&lt;&quot;Case &quot;&lt;&lt;Case&lt;&lt;&quot;:&quot;&lt;&lt;endl;</span><br><span class="line">        dfs(0,1);</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="hduoj1312"><a href="#hduoj1312" class="headerlink" title="hduoj1312"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1312">hduoj1312</a></h3><p> <strong>Red and Black 计算从start开始的所有路径，路径上经过的不重复的.数量</strong><br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"> #include &lt;iostream&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">char datamap[25][25];</span><br><span class="line">int flag[25][25];</span><br><span class="line">int ff[25][25];</span><br><span class="line">int dir[4][2]=&#123;-1,0,0,1,1,0,0,-1&#125;;</span><br><span class="line">int sx,sy;</span><br><span class="line">int count;</span><br><span class="line">int w,h;</span><br><span class="line"></span><br><span class="line">//计算从start开始的所有路径，路径上经过的不重复的.数量</span><br><span class="line">void dfs(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;4;i++)&#123;</span><br><span class="line">        int tmpx=x+dir[i][0];</span><br><span class="line">        int tmpy=y+dir[i][1];</span><br><span class="line">        //不是红砖，并且在范围内,并且没走过</span><br><span class="line">        if(datamap[tmpx][tmpy]==&#x27;.&#x27;&amp;&amp;tmpx&gt;=0&amp;&amp;tmpx&lt;h&amp;&amp;tmpy&gt;=0&amp;&amp;tmpy&lt;w&amp;&amp;!flag[tmpx][tmpy])&#123;</span><br><span class="line">            flag[tmpx][tmpy]=1;</span><br><span class="line">           // cout&lt;&lt;count&lt;&lt;endl;</span><br><span class="line">            count++;</span><br><span class="line">            dfs(tmpx,tmpy);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(scanf(&quot;%d %d&quot;,&amp;w,&amp;h)!=EOF&amp;&amp;w!=0&amp;&amp;h!=0)&#123;</span><br><span class="line">        count=1;</span><br><span class="line">        memset(flag,0,sizeof(flag));</span><br><span class="line">        memset(ff,0,sizeof(ff));</span><br><span class="line">        for(int i=0;i&lt;h;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;w;j++)&#123;</span><br><span class="line">                cin&gt;&gt;datamap[i][j];</span><br><span class="line">                if(datamap[i][j]==&#x27;@&#x27;)&#123;</span><br><span class="line">                    sx=i;</span><br><span class="line">                    sy=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(sx,sy);</span><br><span class="line">        cout&lt;&lt;count&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">      /* for(int i=0;i&lt;h;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;w;j++)&#123;</span><br><span class="line">                cout&lt;&lt;datamap[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">            cout&lt;&lt;endl;</span><br><span class="line">        &#125;*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/08/30/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/" data-id="ckxq1ajrw000ieswb2w5cbg7m" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2019/08/30/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      贪心算法
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2019/08/29/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">动态规划</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Cecyci &copy; 2021</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Cecyci"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
